@@ -47,7 +47,7 @@ sequenceDiagram
     Server -->>User: auth token
     User->>Server: new review
     Server -->>Friend: new review
-    Server -->>: new review
+    Server -->>User: new review
 ```
 
 ### Key features
