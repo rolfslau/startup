@@ -25,7 +25,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 ### Elevator pitch
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Do you wish that there was one place to review multiple types of media? That is what Mumoo review offers: a single app to rate media and connect with friends. Mumoo review offers reviewing for movies, music, and books. You can add your friends and see their favorite books, movies, and music as well!
+
 
 ### Design
 
