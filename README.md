@@ -40,9 +40,14 @@ Here is a quick look at what the application would roughly look like. Each user 
 
 ```mermaid
 sequenceDiagram
-    actor You
-    actor Website
-    You->>Website: Replace this with your design
+    actor User
+    actor Server
+    actor Friend
+    User->>Server: log in
+    Server -->>User: auth token
+    User->>Server: new review
+    Server -->>Friend: new review
+    Server -->>: new review
 ```
 
 ### Key features
