@@ -30,7 +30,11 @@ Do you wish that there was one place to review multiple types of media? That is 
 
 ### Design
 
-![Design image](login.png)(movies.png)(books.png)(music.png)(username_button.png)
+![Login image](login.png)
+![Movies image](movies.png)
+![Books image](books.png)
+![Music image](music.png)
+![Username image](username_button.png)
 
 Here is a quick look at what the application would roughly look like. Each user has an account, so there is a login screen. There are three different pages, one for each type of media. Users can add a new item or simply look at past reviews. They also have access to their friends, their profile, and the ability to sign out through the username button at the top right of the screen.
 
