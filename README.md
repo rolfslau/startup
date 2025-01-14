@@ -51,6 +51,7 @@ sequenceDiagram
 - Display of past reviews
 - Ability to add new reviews for other pieces of media
 - Ability to connect with other users and see their reviews
+- Notification when friends post reviews
 
 ### Technologies
 
@@ -59,7 +60,7 @@ I am going to use the required technologies in the following ways.
 - **HTML** - Correct HTML structure for application. It will use 4 pages. One for each media type, and one for login.
 - **CSS** - Application styling that fits different devices, whitespace and colors.
 - **React** - When you click on each tab at the top left, it takes you to that page. When you click on the plus sign or the username, it will pop open a box with more options.
-- **Service** - Using PurgoMalum to protect against inappropriate behavior from users.
+- **Service** - Using PurgoMalum to protect against inappropriate behavior from users. Interact with the database to retrieve the user's account.
 - **DB/Login** - Store past reviews, and users in database. Register new users and store their accounts securely.
 - **WebSocket** - Notifies other users when a new review is posted by one of their friends.
 
