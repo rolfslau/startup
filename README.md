@@ -30,9 +30,9 @@ Do you wish that there was one place to review multiple types of media? That is 
 
 ### Design
 
-![Design image](login.png)
+![Design image](login.png)(movies.png)(books.png)(music.png)(username_button.png)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Here is a quick look at what the application would roughly look like. Each user has an account, so there is a login screen. There are three different pages, one for each type of media. Users can add a new item or simply look at past reviews. They also have access to their friends, their profile, and the ability to sign out through the username button at the top right of the screen.
 
 ```mermaid
 sequenceDiagram
