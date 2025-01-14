@@ -3,6 +3,7 @@
 [My startup](https://simon.cs260.click)
 
 ## Helpful links
+blah blah
 
 - [Course instruction](https://github.com/webprogramming260)
 - [Canvas](https://byu.instructure.com)
