@@ -19,8 +19,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 - [ ] Proper use of Markdown
 - [x] A concise and compelling elevator pitch
-- [ ] Description of key features
-- [ ] Description of how you will use each technology
+- [x] Description of key features
+- [x] Description of how you will use each technology
 - [x] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ### Elevator pitch
@@ -56,12 +56,12 @@ sequenceDiagram
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Description here
-- **CSS** - Description here
-- **React** - Description here
-- **Service** - Description here
-- **DB/Login** - Description here
-- **WebSocket** - Description here
+- **HTML** - Correct HTML structure for application. It will use 4 pages. One for each media type, and one for login.
+- **CSS** - Application styling that fits different devices, whitespace and colors.
+- **React** - When you click on each tab at the top left, it takes you to that page. When you click on the plus sign or the username, it will pop open a box with more options.
+- **Service** - Using PurgoMalum to protect against inappropriate behavior from users.
+- **DB/Login** - Store past reviews, and users in database. Register new users and store their accounts securely.
+- **WebSocket** - Notifies other users when a new review is posted by one of their friends.
 
 ## 🚀 AWS deliverable
 
