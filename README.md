@@ -81,7 +81,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [x] **HTML pages** - I made pages for books, movies, music, and login.
 - [x] **Proper HTML element usage** - I used the proper elements for input boxes
 - [x] **Links** - there are links to each of the different media pages on every page.
-- [x] **Text** - 
+- [x] **Text** - I have textual content on my site
 - [x] **3rd party API placeholder** - I added a quote from a movie. My third party API will generate random movie quotes when the application is opened.
 - [x] **Images** - added an image of a cow to each page
 - [x] **Login placeholder** - I made a login page
