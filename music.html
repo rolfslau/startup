@@ -16,6 +16,7 @@
         <!-- <select id="exercise" name="exercise" onchange="nav_to_page(value)"> -->
        
             <select id="select" name="varSelect" onchange="nav_to_page(value)">
+          <option>select</option>
           <option value="input_books.html">books</option>
           <option value="input_movies.html">movies</option>
           <option value="input_music.html">music</option>
@@ -49,3 +50,12 @@
         <a href="https://github.com/rolfslau/startup">github repo</a>
     </footer>
 </body>
+
+
+<script>
+    function nav_to_page(value) {
+        if (value) {
+            window.location.href = value;
+        }
+    }
+</script>
