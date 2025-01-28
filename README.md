@@ -83,7 +83,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [x] **Links** - there are links to each of the different media pages on every page.
 - [x] **Text** - 
 - [x] **3rd party API placeholder** - I added a quote from a movie. My third party API will generate random movie quotes when the application is opened.
-- [ ] **Images** - 
+- [x] **Images** - added an image of a cow to each page
 - [x] **Login placeholder** - I made a login page
 - [x] **DB data placeholder** - login section with a box for username and for password. Also a record of the past reviews made by the user.
 - [x] **WebSocket placeholder** - I made a page that shows the latest reivews done by friends
