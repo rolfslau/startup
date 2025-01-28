@@ -82,11 +82,11 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [x] **Proper HTML element usage** - I used the proper elements for input boxes
 - [x] **Links** - there are links to each of the different media pages on every page.
 - [x] **Text** - 
-- [ ] **3rd party API placeholder** - 
+- [x] **3rd party API placeholder** - I added a quote from a movie. My third party API will generate random movie quotes when the application is opened.
 - [ ] **Images** - 
-- [x] **Login placeholder** - 
+- [x] **Login placeholder** - I made a login page
 - [x] **DB data placeholder** - login section with a box for username and for password. Also a record of the past reviews made by the user.
-- [ ] **WebSocket placeholder** - 
+- [x] **WebSocket placeholder** - I made a page that shows the latest reivews done by friends
 
 ## 🚀 CSS deliverable
 
