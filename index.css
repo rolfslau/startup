@@ -1,14 +1,35 @@
+
 header {
     text-align: center;
-    background-color:chocolate;
-    color: white;
+    background-color:rgb(249, 184, 137);
+    color:chocolate;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 main {
-   text-align: center; 
+    place-content: center;
+    text-align: center; 
+    background-color: bisque;
+    width: 300px;
+    border: 15px solid rgb(215, 187, 161);
+    padding: 50px;
+    margin: 20px;
+    border-radius: 1em;
+    display: flex;
+    username {
+        flex: 1 1 50px
+    }
+    password {
+        flex: 1 1 50px
+    }
+    
 }
 
 footer {
     text-align: center; 
+    background-color: bisque;
+}
+
+body {
+    background-color: bisque;
 }
