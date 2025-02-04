@@ -65,7 +65,7 @@ main {
     display: flex; /* Use flex to align children */
     flex-direction: column; /* Stack children vertically */
     justify-content: center; /* Center the children vertically */
-    /* align-items: center; */
+    align-items: center;
 }
 
 img {
