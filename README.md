@@ -94,9 +94,9 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 - [x] **Header, footer, and main content body** - centering for header and footer, centering and border around the main content
 - [x] **Navigation elements** - made them into buttons, when you hover over them they change color
-- [x] **Responsive to window resizing** - 
-- [x] **Application elements** - 
-- [x] **Application text content** - 
+- [x] **Responsive to window resizing** - made the site centered when resized
+- [x] **Application elements** - I added styling to different tags to match the tone of my website
+- [x] **Application text content** - I added styling to different tags to match the tone of my website
 - [x] **Application images** - made the images have a transparent background and increased the size on the login page
 
 ## 🚀 React part 1: Routing deliverable
