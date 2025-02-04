@@ -4,12 +4,14 @@ header {
     color:chocolate;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-/* nav {
+
 .btn {
-    background-color: brown;
+    background-color: rgb(176, 128, 40);
     color: aliceblue;
+    border: 1em;
+
 }
-} */
+
 
 
 body {
