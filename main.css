@@ -2,12 +2,12 @@
     h2 {
        width: 10vw; 
     }
-}
+} */
 
 
 h2 {
     justify-content: center;
-} */
+}
 
 header {
     text-align: center;
@@ -67,6 +67,11 @@ main {
     justify-content: center; /* Center the children vertically */
     /* align-items: center; */
 }
+
+img {
+    justify-content: center;
+}
+
 
 footer {
     text-align: center; 
