@@ -1,14 +1,17 @@
 <head>
     <link rel="stylesheet" href="main.css">
     <title>Mumoo Review</title>
-    <h1>Mumoo Review</h1>
-    <img src="cow_noBG.png" style="height:50px">
-
-    <h2>My name is Inigo Montoya, you killed my father, prepare to die - Inigo Montoya</h2>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 </head>
 <main>
 <body>
+    <h1>Mumoo Review</h1>
+    <img src="cow_noBG.png" style="height:50px; width:50px">
+
+    <h2>My name is Inigo Montoya, you killed my father, prepare to die - Inigo Montoya</h2>
+
     <nav>
         <div style="display: flex; justify-content: center">
             <!-- <a class=btn href="books.html">books</a> -->
@@ -61,9 +64,16 @@
     <h5style="line-height:0px">⭐⭐</h5>
     <p>this book is not written very well</p>
 
-</body>
 
-    <hr>
+    <script>
+        function nav_to_page(value) {
+            if (value) {
+                window.location.href = value;
+            }
+        }
+    </script>
+
+<hr>
 
     <footer>
         <a href="https://github.com/rolfslau/startup">github repo</a>
@@ -77,16 +87,4 @@
 
     </footer>
 
-
-
-
-
-
-
-<script>
-    function nav_to_page(value) {
-        if (value) {
-            window.location.href = value;
-        }
-    }
-</script>
+</body>
