@@ -7,11 +7,12 @@ header {
 
 .btn {
     background-color: rgb(176, 128, 40);
-    color: aliceblue;
-    border: 1em;
-
+    color: rgb(195, 195, 48);
+    border: 4px;
+    border-color: brown;
+    padding: 2px; 
+    border-radius: 5px
 }
-
 
 
 body {
