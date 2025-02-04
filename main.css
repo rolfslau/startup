@@ -27,6 +27,12 @@ button:hover {
     background-color: bisque;
 }
 
+select {
+    background-color: rgb(215, 187, 161);
+    border: 2px solid rgb(215, 187, 161);
+    border-radius: 5px;
+}
+
 
 body {
     background-color: bisque;
