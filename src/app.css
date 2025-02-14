@@ -10,12 +10,18 @@ h2 {
 }
 
 header {
+    flex: 0;
     text-align: center;
     color:chocolate;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-button {
+.root {
+    width: 100%;
+    height: 100%;
+}
+
+.button {
     all: unset;
     background-color: rgb(215, 187, 161);
     color: rgb(0, 0, 0);
@@ -32,8 +38,12 @@ button {
     /* transition: background-color 0.3s ease, color 0.3s ease;  Smooth hover transition */
 }
 
+.button_div {
+    display: flex; 
+    justify-content: center;
+}
 
-button:hover {
+.button:hover {
     background-color: bisque;
 }
 
@@ -43,19 +53,24 @@ select {
     border-radius: 5px;
 }
 
-
 body {
+    background-color: bisque;
+}
+
+
+.body_class {
     background-color: bisque !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0;
+    /* margin: 0; */
     align-items: center;
     min-height: 100vh;
     width: 100vw;
 }
 
-main {
+.full_page {
+    flex: 1;
     text-align: center; 
     background-color: bisque;
     border: 15px solid rgb(215, 187, 161);
@@ -77,6 +92,9 @@ img {
     background-image: url(/cow_noBG.png);
 } */
 
+hr {
+    border-top: dotted 4px;
+}
 
 footer {
     text-align: center; 

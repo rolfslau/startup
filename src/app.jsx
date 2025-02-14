@@ -12,21 +12,20 @@ import { Friends } from './friends/friends';
 export default function App() {
   return ( 
   <BrowserRouter>
-  <div className="body">
+  <div className="body_class">
+    <div className='full_page'>
 <header>
-  
-</header>
-
-
 <nav>
-        <NavLink className='nav-link' to="books">books</NavLink>
-        <NavLink className='nav-link' to="movies">movies</NavLink>
-        <NavLink className='nav-link' to="music">music</NavLink>
+        <NavLink className='button' to="books">books</NavLink>
+        <NavLink className='button' to="movies">movies</NavLink>
+        <NavLink className='button' to="music">music</NavLink>
+        <NavLink className='button' to="friends">friends</NavLink>
     </nav>
   <h1>Mumoo Review</h1>
   <img src="/cow_noBG.png"></img>
   <hr></hr>
-  
+  </header>
+
   <Routes>
   <Route path='/' element={<Login />} exact />
   <Route path='/music' element={<Music />} />
@@ -43,6 +42,7 @@ export default function App() {
 
       <h4>Laurel Rolfs</h4>
   </footer>
+  </div>
 </div>
 </BrowserRouter>
 );
