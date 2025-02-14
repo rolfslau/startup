@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 export function Music() {
   return (
@@ -26,6 +27,5 @@ export function Music() {
     <h5>⭐⭐⭐⭐</h5>
 
     </main>
-
   );
 }
