@@ -14,10 +14,7 @@ export function Login() {
         <input type="password"/>
         </div>
 
-        <form method="get" action="books.html">
-            <br/>
-            <button type="submit">login</button>
-        </form>
+        <NavLink className='button' to="books">login</NavLink>
         
     </main>
   );

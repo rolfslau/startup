@@ -38,6 +38,8 @@ export default function App() {
   <hr></hr>
 
   <footer>
+  <NavLink className='button' to="login">log out</NavLink>
+  <br/>
       <a href="https://github.com/rolfslau/startup">github repo</a>
 
       <h4>Laurel Rolfs</h4>
