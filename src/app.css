@@ -44,8 +44,8 @@ select {
 }
 
 
-.body {
-    background-color: bisque;
+body {
+    background-color: bisque !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -70,7 +70,12 @@ main {
 
 img {
     justify-content: center;
+    height: 70px;
 }
+
+/* .image {
+    background-image: url(/cow_noBG.png);
+} */
 
 
 footer {
