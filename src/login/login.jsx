@@ -1,22 +1,22 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export function Login() {
+export function Login(p) {
   const navigate = useNavigate()
-  const [username, setusername] = React.useState("")
-  const [password, setpassword] = React.useState("")
+  const [usertext, setusertext] = React.useState("")
+  const [passwordtext, setpasswordtext] = React.useState("")
   function changeusernametext(e) {
-    setusername(e.target.value)
+    setusertext(e.target.value)
   }
   function registeruser() {
-    localStorage.setItem('username', username)
-    localStorage.setItem('password', password)
+    localStorage.setItem(usertext, passwordtext)
+    p.setusername(usertext)
   }
   function loginuser() {
-    if (username && password) {
-      // localStorage.getItem('username')
-      const expectedpassword = localStorage.getItem('password')
-      if (expectedpassword == password) {
+    if (usertext && passwordtext) {
+      const expectedpassword = localStorage.getItem(usertext)
+      if (expectedpassword == passwordtext) {
+        p.setusername(usertext)
         navigate("/books")
       }
       else {
@@ -26,8 +26,6 @@ export function Login() {
   }
   return (
     <main>
-      <div>{username}</div>
-      <div>{password}</div>
         <div className="username">
         username:
         <input type="username" onChange={changeusernametext}></input>
@@ -36,7 +34,7 @@ export function Login() {
         <br/>
         <div className="password">
         password:
-        <input type="password" onChange={(e)=>setpassword(e.target.value)}/>
+        <input type="password" onChange={(e)=>setpasswordtext(e.target.value)}/>
         </div>
 
         

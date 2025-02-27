@@ -1,11 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-export function Books() {
+export function Books(p) {
   return (
+    
     <main>
 
-    <h2>My name is Inigo Montoya, you killed my father, prepare to die - Inigo Montoya</h2>
+    <h2>My name is {p.username}, you killed my father, prepare to die - Inigo Montoya</h2>
 
 
     <hr/>
