@@ -53,7 +53,7 @@ export function FriendReviews() {
         const interval = setInterval(() => {
             savebookreview();
             console.log("book review added")
-        }, 60000);
+        }, 30000);
         return () => clearInterval(interval);
     }, []);
 
@@ -61,7 +61,7 @@ export function FriendReviews() {
         const interval = setInterval(() => {
             savemusicreview();
             console.log("music review added")
-        }, 30000);
+        }, 10000);
         return () => clearInterval(interval);
     }, []);
 
@@ -69,7 +69,7 @@ export function FriendReviews() {
         const interval = setInterval(() => {
             savemoviereview();
             console.log("movie review added")
-        }, 45000);
+        }, 25000);
         return () => clearInterval(interval);
     }, []);
 }
