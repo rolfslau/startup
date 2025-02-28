@@ -10,6 +10,7 @@ import { Movies } from './movies/movies';
 import { Books } from './books/books';
 import { Friends } from './friends/friends';
 import { Inputbooks } from './books/input_books'
+import { Inputmovies } from './movies/input_movies'
 
 export default function App() {
   return (
@@ -27,6 +28,9 @@ export default function App() {
     setSelectedOption(value)
     if (value == "input_books") {
       navigate('/input_books')
+    }
+    else if (value == "input_movies") {
+      navigate('/input_movies')
     }
   }
   return ( 
@@ -66,6 +70,7 @@ export default function App() {
   <Route path='/books' element={<Books username = {username}/>} />
   <Route path='/friends' element={<Friends />} />
   <Route path='/input_books' element={<Inputbooks />} />
+  <Route path='/input_movies' element={<Inputmovies />} />
   <Route path='*' element={<NotFound />} />
 </Routes>
 

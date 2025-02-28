@@ -1,0 +1,42 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
+export function Inputmovies() {
+    const navigate = useNavigate()
+    const [movie, setmovie] = React.useState('')
+    const [mreview, setmreview] = React.useState('')
+    const [mstars, setmstars] = React.useState('')
+    function savereview(e) {
+        let movieReviews = JSON.parse(localStorage.getItem('moviereviews'));
+        if (!movieReviews) {
+            movieReviews = [];
+        }
+        let currReview = {
+            title: movie,
+            review: mreview,
+            stars: mstars,
+        }
+        movieReviews.push(currReview);
+        localStorage.setItem('moviereviews', JSON.stringify(movieReviews));
+        navigate('/movies')
+    }
+    return (
+        <main>
+            <label htmlFor="text">Title </label>
+        <input type="text" id="text" name="varText" placeholder="your last watch here" onChange={(e)=>setmovie(e.target.value)}/>
+
+<br/>
+    
+<label htmlFor="textarea">Review</label>
+<textarea id="textarea" name="varTextarea" placeholder="what did you think?" onChange={(e)=>setmreview(e.target.value)}></textarea>
+
+<br/>
+
+<label htmlFor="stars">Stars</label>
+  <textarea id='stars' placeholder="1-5" onChange={(e)=>setmstars(e.target.value)}></textarea>
+
+  <br/>
+
+  <button onClick={savereview} >add review</button>
+        </main>
+    )}
