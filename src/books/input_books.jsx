@@ -4,12 +4,28 @@ import { useNavigate } from 'react-router-dom';
 export function Inputbooks() {
     const navigate = useNavigate()
     // const [book, setbook, [author, setauthor], [review, setreview], [stars, setstars]] = React.useState
+    // const [bookreviews, setbookReviews] = React.useState([])
     const [book, setbook] = React.useState('')
     const [author, setauthor] = React.useState('')
     const [review, setreview] = React.useState('')
     const [stars, setstars] = React.useState('')
     function savereview(e) {
-        localStorage.setItem(book, [author, review, stars])
+        let bookReviews = JSON.parse(localStorage.getItem('bookreviews'));
+        if (!bookReviews) {
+            bookReviews = [];
+        }
+        let currReview = {
+            title: book,
+            author: author,
+            review: review,
+            stars: stars,
+        }
+        // currReview.push(book);
+        // currReview.push(author);
+        // currReview.push(review);
+        // currReview.push(stars);
+        bookReviews.push(currReview);
+        localStorage.setItem('bookreviews', JSON.stringify(bookReviews));
         navigate('/books')
     }
 

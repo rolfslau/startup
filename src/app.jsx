@@ -23,13 +23,11 @@ export default function App() {
   const [username, setusername] = React.useState("")
   const [selectedOption, setSelectedOption] = React.useState("")
   function handleChange(e) {
-    setSelectedOption(e.target.value)
-    if (selectedOption == "input_books") {
+    const value = e.target.value
+    setSelectedOption(value)
+    if (value == "input_books") {
       navigate('/input_books')
     }
-    // if (selectedOption === 'input_books') {
-    //   navigate('/input_books')
-    // }
   }
   return ( 
   // <BrowserRouter>
