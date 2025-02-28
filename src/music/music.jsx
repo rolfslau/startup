@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
 export function Music() {
+  const [reviews, setReviews] = React.useState([]);
+
+    useEffect(() => {
+      const savedReviews = localStorage.getItem('musicreviews');
+      if (savedReviews) {
+        setReviews(JSON.parse(savedReviews));
+      }
+    }, []);
+
   return (
     <main>
 
@@ -9,8 +18,21 @@ export function Music() {
 
     <hr/>
 
-    
-    <h4>Barcelona</h4>
+    {reviews.length === 0 ? (
+      <p>No reviews yet!</p>
+    ) : (
+      <div>
+        {reviews.map((review, index) => (
+          <div key={index}>
+            <h2>{review.title}: {review.artist}</h2>
+            <p>Stars: {review.stars}</p>
+            <hr/>
+          </div>
+        ))}
+      </div>
+    )}
+
+    {/* <h4>Barcelona</h4>
     <h6>Jonah Kagen</h6>
     <h5>⭐⭐⭐⭐</h5>
 
@@ -24,7 +46,7 @@ export function Music() {
 
     <h4>Love Story</h4>
     <h6>Taylor Swift</h6>
-    <h5>⭐⭐⭐⭐</h5>
+    <h5>⭐⭐⭐⭐</h5> */}
 
     </main>
   );

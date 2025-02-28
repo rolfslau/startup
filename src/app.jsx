@@ -9,8 +9,9 @@ import { Music } from './music/music';
 import { Movies } from './movies/movies';
 import { Books } from './books/books';
 import { Friends } from './friends/friends';
-import { Inputbooks } from './books/input_books'
-import { Inputmovies } from './movies/input_movies'
+import { Inputbooks } from './books/input_books';
+import { Inputmovies } from './movies/input_movies';
+import { Inputmusic } from './music/input_music';
 
 export default function App() {
   return (
@@ -31,6 +32,9 @@ export default function App() {
     }
     else if (value == "input_movies") {
       navigate('/input_movies')
+    }
+    else if (value == "input_music") {
+      navigate('/input_music')
     }
   }
   return ( 
@@ -71,6 +75,7 @@ export default function App() {
   <Route path='/friends' element={<Friends />} />
   <Route path='/input_books' element={<Inputbooks />} />
   <Route path='/input_movies' element={<Inputmovies />} />
+  <Route path='/input_music' element={<Inputmusic />} />
   <Route path='*' element={<NotFound />} />
 </Routes>
 
