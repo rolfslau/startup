@@ -26,6 +26,7 @@ export function FriendReviews() {
         let currReview = {
             friend: "Jane",
             title: "Paycheck",
+            author: "no author",
             review: "a good movie",
             stars: "5",
         }
@@ -41,7 +42,7 @@ export function FriendReviews() {
         let currReview = {
             friend: "James",
             title: "you're on your own kid",
-            artist: "taylor swift",
+            author: "taylor swift",
             stars: "5",
         }
         friendReviews.push(currReview);
@@ -51,6 +52,7 @@ export function FriendReviews() {
     useEffect(() => {
         const interval = setInterval(() => {
             savebookreview();
+            console.log("book review added")
         }, 60000);
         return () => clearInterval(interval);
     }, []);
@@ -58,6 +60,7 @@ export function FriendReviews() {
     useEffect(() => {
         const interval = setInterval(() => {
             savemusicreview();
+            console.log("music review added")
         }, 30000);
         return () => clearInterval(interval);
     }, []);
@@ -65,6 +68,7 @@ export function FriendReviews() {
     useEffect(() => {
         const interval = setInterval(() => {
             savemoviereview();
+            console.log("movie review added")
         }, 45000);
         return () => clearInterval(interval);
     }, []);

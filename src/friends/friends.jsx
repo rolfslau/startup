@@ -1,33 +1,39 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { FriendReviews } from './friend_reviews';
 
 export function Friends() {
-
+  FriendReviews();
+  
   const [friendreviews, setFriendReviews] = React.useState([]);
 
     useEffect(() => {
-      const savedReviews = localStorage.getItem('friendreviews');
-      if (savedReviews) {
-        setReviews(JSON.parse(savedReviews));
-      }
-    }, []);
+      const interval = setInterval(() => {
+        const savedReviews = localStorage.getItem('friendreviews');
+        if (savedReviews) {
+          setFriendReviews(JSON.parse(savedReviews));
+        }
+        console.log("console reloaded")
+      }, 10000);
+      return () => clearInterval(interval);
+    }, [friendreviews])
 
   return (
     <main>
-
-    <hr/>
     <h3>Latest Reviews</h3>
+    <hr/>
 
 
     {friendreviews.length === 0 ? (
       <p>No reviews yet!</p>
     ) : (
       <div>
-        {reviews.map((review, index) => (
+        {friendreviews.map((review, index) => (
           <div key={index}>
+            <h2>friend: {review.friend}</h2>
             <h2>{review.title}: {review.stars} stars</h2>
             <p>Author: {review.author}</p>
-            <p>Review: {review.review}</p>
+            {/* <p>Review: {review.review}</p> */}
             <hr/>
           </div>
         ))}
