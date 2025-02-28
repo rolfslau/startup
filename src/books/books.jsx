@@ -2,16 +2,38 @@ import React, {useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
 
 export function Books(p) {
+    const [reviews, setReviews] = React.useState([]);
+
+    useEffect(() => {
+      const savedReviews = localStorage.getItem('bookreviews');
+      if (savedReviews) {
+        setReviews(JSON.parse(savedReviews));
+      }
+    }, []);
+  
 
   return (
     <main>
 
 
-    {/* <h2>My name is {p.username}, you killed my father, prepare to die - Inigo Montoya</h2>
-
+     <h2>My name is {p.username}, you killed my father, prepare to die - Inigo Montoya</h2>
 
     <hr/>
-
+    {reviews.length === 0 ? (
+      <p>No reviews yet!</p>
+    ) : (
+      <div>
+        {reviews.map((review, index) => (
+          <div key={index}>
+            <h2>{review.title}: {review.stars} stars</h2>
+            <p>Author: {review.author}</p>
+            <p>Review: {review.review}</p>
+            <hr/>
+          </div>
+        ))}
+      </div>
+    )}
+{/*
     <h4>The Way of Kings</h4>
     <h6>Brandon Sanderson</h6>
     <h5>⭐⭐⭐⭐</h5>
