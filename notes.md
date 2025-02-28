@@ -21,6 +21,6 @@ target = "_blank" [opens links in a new tab]
 
 ## react part 2:
 I need to:
-1. make the login reactive
-2. make it store reviews put in (for all media types)
-3. have other user's "reviews" pop up
+[x] make the login reactive 
+[x] make it store reviews put in (for all media types)
+[] have other user's "reviews" pop up

@@ -31,23 +31,6 @@ export function Music() {
         ))}
       </div>
     )}
-
-    {/* <h4>Barcelona</h4>
-    <h6>Jonah Kagen</h6>
-    <h5>⭐⭐⭐⭐</h5>
-
-    <hr/>
-
-    <h4>Santa Fe</h4>
-    <h6>Newsies</h6>
-    <h5>⭐⭐⭐⭐⭐</h5>
-
-    <hr/>
-
-    <h4>Love Story</h4>
-    <h6>Taylor Swift</h6>
-    <h5>⭐⭐⭐⭐</h5> */}
-
     </main>
   );
 }
