@@ -14,7 +14,7 @@ export function Friends() {
           setFriendReviews(JSON.parse(savedReviews));
         }
         console.log("console reloaded")
-      }, 10000);
+      }, 5000);
       return () => clearInterval(interval);
     }, [friendreviews])
 
