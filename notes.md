@@ -23,4 +23,15 @@ target = "_blank" [opens links in a new tab]
 I need to:
 [x] make the login reactive 
 [x] make it store reviews put in (for all media types)
-[] have other user's "reviews" pop up
+[x] have other user's "reviews" pop up
+
+
+build in index.js
+make an array  somewhere and save in that array
+
+fetch requests are only frontend
+edit react to ask the requests of the service
+
+## express:
+post = create something new (register)
+put = update something

@@ -16,7 +16,11 @@ export function Books(p) {
     <main>
 
 
-     <h2>My name is {p.username}, you killed my father, prepare to die - Inigo Montoya</h2>
+     <h2> placeholder
+      {/* {fetch('https://movie-quote-api.herokuapp.com/v1/quote?censored')
+     .then((response)=> response.json())
+     .then((jsonResponse) => {console.log(jsonResponse);})} */}
+     </h2>
 
     <hr/>
     {reviews.length === 0 ? (
