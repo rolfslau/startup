@@ -35,6 +35,9 @@ app.post('/login', (req, res) => {
 
 app.post('/book_review', (req, res) => {
     const { username, title, author, review, stars } = req.body;
+    if( !title || !author || !review || !stars) {
+        return res.status(400).send('must fill all fields')
+    }
     const breview = { username, title, author, review, stars };
     book_reviews.push(breview);
     res.send("book review added")   
@@ -43,6 +46,9 @@ app.post('/book_review', (req, res) => {
 
 app.post('/movie_review', (req, res) => {
     const { username, title, review, stars } = req.body;
+    if( !title || !review || !stars) {
+        return res.status(400).send('must fill all fields')
+    }
     const mreview = { username, title, review, stars };
     movie_reviews.push(mreview);
     res.send("movie review added")
@@ -51,6 +57,9 @@ app.post('/movie_review', (req, res) => {
 
 app.post('/music_review', (req, res) => {
     const { username, title, artist, stars } = req.body;
+    if( !title || !artist || !stars) {
+        return res.status(400).send('must fill all fields')
+    }
     const mureview = { username, title, artist, stars };
     music_reviews.push(mureview);
     res.send("music review added")
