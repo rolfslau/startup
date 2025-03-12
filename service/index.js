@@ -21,28 +21,33 @@ app.post('/login', (req, res) => {
 
 app.post('/book_review', (req, res) => {
     const { email, title, author, review, stars } = req.body;
+    const breview = { email, title, author, review, stars };
+    book_reviews.push(breview);
+    res.send("book review added")   
 });
 
-const breview = { email, title, author, review, stars };
-book_reviews.push(breview);
 
 app.post('/movie_review', (req, res) => {
     const { email, title, review, stars } = req.body;
+    const mreview = { email, title, review, stars };
+    movie_reviews.push(mreview);
+    res.send("movie review added")
 });
 
-const mreview = { email, title, review, stars };
-movie_reviews.push(mreview);
 
 app.post('/music_review', (req, res) => {
     const { email, title, artist, stars } = req.body;
+    const mureview = { email, title, artist, stars };
+    music_reviews.push(mureview);
+    res.send("music review added")
 });
 
-const mureview = { email, title, artist, stars };
-music_reviews.push(mureview);
+
 
 app.post('/add_friend', (req, res) => {
     const {email, fname} = req.body;
+    const friend = {email, fname};
+    friends.push(friend);
+    res.send("new friend added")
 });
 
-const friend = {email, fname};
-friends.push(friend);
