@@ -40,5 +40,9 @@ app.post('/music_review', (req, res) => {
 const mureview = { email, title, artist, stars };
 music_reviews.push(mureview);
 
+app.post('/add_friend', (req, res) => {
+    const {email, fname} = req.body;
+});
+
 const friend = {email, fname};
 friends.push(friend);
