@@ -18,8 +18,14 @@ app.post('/register', (req, res) => {
 
 
 app.post('/login', (req, res) => {
-
+    const { email } = req.body;
+    const user = users.find(user => user.email === email);
+    if (!user) {
+        return res.status(400).send("no user found")
+    }
+    res.send("login successful")
 });
+
 
 app.post('/book_review', (req, res) => {
     const { email, title, author, review, stars } = req.body;
@@ -53,3 +59,8 @@ app.post('/add_friend', (req, res) => {
     res.send("new friend added")
 });
 
+
+const port = 8080;
+app.listen(port, () => {
+    console.log('server running on port ${port}');
+});
