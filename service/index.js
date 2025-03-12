@@ -4,6 +4,7 @@ const app = express();
 let users = [];
 let book_reviews = [];
 let movie_reviews = [];
+let music_reviews = [];
 
 app.post('/register', (req, res) => {
     const {username, email} = req.body;
@@ -28,5 +29,12 @@ app.post('/movie_review', (req, res) => {
     const { email, title, review, stars } = req.body;
 });
 
-const mreview = { email, author, review, stars };
+const mreview = { email, title, review, stars };
 movie_reviews.push(mreview);
+
+app.post('/music_review', (req, res) => {
+    const { email, title, artist, stars } = req.body;
+});
+
+const mureview = { email, title, artist, stars };
+music_reviews.push(mureview);
