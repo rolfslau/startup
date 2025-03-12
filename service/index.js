@@ -13,7 +13,7 @@ app.post('/register', (req, res) => {
     if (!username || !password) {
         return res.status(400).send("username and password required")
     }
-    if (users.find(user => username === username)) {
+    if (users.find(user => user.username === username)) {
         return res.status(400).send("account already exists")
     }
     const newUser = {username, password};
@@ -28,6 +28,9 @@ app.post('/login', (req, res) => {
     const user = users.find(user => user.username === username);
     if (!user) {
         return res.status(400).send("no user found")
+    }
+    if (user.password != password) {
+        return res.status(400).send("wrong password")
     }
     res.send("login successful")
 });
@@ -77,5 +80,5 @@ app.post('/add_friend', (req, res) => {
 
 const port = 8080;
 app.listen(port, () => {
-    console.log('server running on port ${port}');
+    console.log(`server running on port ${port}`);
 });
