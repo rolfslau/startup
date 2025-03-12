@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+app.use(express.json());
 
 let users = [];
 let book_reviews = [];
@@ -9,11 +10,12 @@ let friends = [];
 
 app.post('/register', (req, res) => {
     const {username, email} = req.body;
+    const newUser = {username, email};
+    users.push(newUser);
+    res.send("account created!!")
 });
 
-const newUser = {username, email};
-users.push(newUser);
-res.send("account created!!")
+
 
 app.post('/login', (req, res) => {
 
