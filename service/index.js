@@ -5,6 +5,7 @@ let users = [];
 let book_reviews = [];
 let movie_reviews = [];
 let music_reviews = [];
+let friends = [];
 
 app.post('/register', (req, res) => {
     const {username, email} = req.body;
@@ -38,3 +39,6 @@ app.post('/music_review', (req, res) => {
 
 const mureview = { email, title, artist, stars };
 music_reviews.push(mureview);
+
+const friend = {email, fname};
+friends.push(friend);
