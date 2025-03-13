@@ -8,6 +8,7 @@ let movie_reviews = [];
 let music_reviews = [];
 let friends = [];
 
+
 app.post('/register', (req, res) => {
     const {username, password} = req.body;
     if (!username || !password) {
@@ -67,7 +68,6 @@ app.post('/music_review', (req, res) => {
     music_reviews.push(mureview);
     res.send("music review added")
 });
-
 
 
 app.post('/add_friend', (req, res) => {

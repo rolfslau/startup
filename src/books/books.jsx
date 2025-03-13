@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export function Books(p) {
     const [reviews, setReviews] = React.useState([]);
+    const [quote, setQuote] = React.useState([]);
 
     useEffect(() => {
       const savedReviews = localStorage.getItem('bookreviews');
@@ -10,13 +11,22 @@ export function Books(p) {
         setReviews(JSON.parse(savedReviews));
       }
     }, []);
+
+    useEffect(() => {
+      fetch('https://movie-quote-api.herokuapp.com/v1/quote?censored')
+      .then((response) => response.json())
+      .then((data) => {
+        setQuote(data);
+        // setCharacter(data.character);
+      })
+    })
   
 
   return (
     <main>
 
 
-     <h2> placeholder
+     <h2> {quote}
       {/* {fetch('https://movie-quote-api.herokuapp.com/v1/quote?censored')
      .then((response)=> response.json())
      .then((jsonResponse) => {console.log(jsonResponse);})} */}
