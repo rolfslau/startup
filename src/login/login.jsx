@@ -10,7 +10,7 @@ export function Login(p) {
   }
   async function registeruser() {
     const response = await fetch('/register', {
-      method: 'post',
+      method: 'POST',
       body: JSON.stringify({username: usertext, password: passwordtext}),
       headers: {
         'Content-type': 'application/json; charset-UTF-8',
@@ -31,7 +31,7 @@ export function Login(p) {
   async function loginuser() {
 
     const response = await fetch('/login', {
-      method: 'post',
+      method: 'POST',
       body: JSON.stringify({username: usertext, password: passwordtext}),
       headers: {
         'Content-type': 'application/json; charset-UTF-8',

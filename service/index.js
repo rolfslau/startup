@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 app.use(express.json());
+const cors = require('cors');
+app.use(cors());
 
 let users = [];
 let book_reviews = [];
@@ -25,7 +27,7 @@ app.post('/register', (req, res) => {
 
 
 app.post('/login', (req, res) => {
-    const { username } = req.body;
+    const { username, password } = req.body;
     const user = users.find(user => user.username === username);
     if (!user) {
         return res.status(400).send("no user found")
