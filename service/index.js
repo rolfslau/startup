@@ -19,7 +19,7 @@ app.post('/register', (req, res) => {
     }
     const newUser = {username, password};
     users.push(newUser);
-    res.send("account created!!")
+    return res.status(200).send("account created!!")
 });
 
 
@@ -33,7 +33,7 @@ app.post('/login', (req, res) => {
     if (user.password != password) {
         return res.status(400).send("wrong password")
     }
-    res.send("login successful")
+    return res.status(200).send("login successful")
 });
 
 

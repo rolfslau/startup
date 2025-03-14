@@ -8,11 +8,28 @@ export function Login(p) {
   function changeusernametext(e) {
     setusertext(e.target.value)
   }
-  function registeruser() {
-    localStorage.setItem(usertext, passwordtext)
-    p.setusername(usertext)
+  async function registeruser() {
+    const response = await fetch('/register', {
+      method: 'post',
+      body: JSON.stringify({username: usertext, password: passwordtext}),
+      headers: {
+        'Content-type': 'application/json; charset-UTF-8',
+      },
+    });
+    if (response.status == 200) {
+      alert('account created!')
+      // localStorage.setItem(usertext, passwordtext)
+      // p.setusername(usertext)
+    }
+    else {
+    //   const errorMessage = await response.text();  // Get the error message from the response body
+    // alert(errorMessage); 
+      alert("account not created")
+    }
+    
   }
   async function loginuser() {
+
     const response = await fetch('/login', {
       method: 'post',
       body: JSON.stringify({username: usertext, password: passwordtext}),
@@ -20,11 +37,10 @@ export function Login(p) {
         'Content-type': 'application/json; charset-UTF-8',
       },
     });
-    // if (response = '200'):
-
-    if (usertext && passwordtext) {
-      const expectedpassword = localStorage.getItem(usertext)
-      if (expectedpassword == passwordtext) {
+     if (response.status == 200) {
+    // if (usertext && passwordtext) {
+      // const expectedpassword = localStorage.getItem(usertext)
+      // if (expectedpassword == passwordtext) {
         p.setusername(usertext)
         navigate("/books")
       }
@@ -32,7 +48,7 @@ export function Login(p) {
         alert("bad login")
       }
     }
-  }
+  
   return (
     <main>
         <div className="username">

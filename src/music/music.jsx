@@ -1,6 +1,22 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
+export function get_quote() {
+  const [quote, setQuote] = React.useState(null);
+  useEffect(() => {
+    fetch('https://movie-quote-api.herokuapp.com/v1/quote?censored')
+    .then((response) => response.json())
+    .then((data) => {
+      setQuote(data.quote);
+      // setCharacter(data.character);
+    })
+  }, [])
+
+  return (
+    <p>{quote}</p>
+  )
+};
+
 export function Music() {
   const [reviews, setReviews] = React.useState([]);
 
@@ -14,7 +30,7 @@ export function Music() {
   return (
     <main>
 
-    <h2>My name is Inigo Montoya, you killed my father, prepare to die - Inigo Montoya</h2>
+    <h2>{get_quote()}</h2>
 
     <hr/>
 
