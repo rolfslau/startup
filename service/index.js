@@ -44,13 +44,21 @@ app.post('/book_review', (req, res) => {
     }
     const breview = { username, title, author, review, stars };
     book_reviews.push(breview);
-    res.send("book review added")   
+    return res.status(200).send("book review added")   
 });
 
 app.get('/get_books', (req, res) => {
     res.send(book_reviews)
 });
 
+app.get('/get_movies', (req, res) => {
+    res.send(movie_reviews)
+});
+
+
+app.get('/get_music', (req, res) => {
+    res.send(music_reviews)
+});
 
 app.post('/movie_review', (req, res) => {
     const { username, title, review, stars } = req.body;
@@ -59,7 +67,7 @@ app.post('/movie_review', (req, res) => {
     }
     const mreview = { username, title, review, stars };
     movie_reviews.push(mreview);
-    res.send("movie review added")
+    return res.status(200).send("movie review added")
 });
 
 
@@ -70,7 +78,7 @@ app.post('/music_review', (req, res) => {
     }
     const mureview = { username, title, artist, stars };
     music_reviews.push(mureview);
-    res.send("music review added")
+    return res.status(200).send("music review added")
 });
 
 

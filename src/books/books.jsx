@@ -19,8 +19,6 @@ export function get_quote() {
 
 export function Books(p) {
     const [reviews, setReviews] = React.useState([]);
-    
-
     useEffect(() => {
       const savedReviews = localStorage.getItem('bookreviews');
       if (savedReviews) {
