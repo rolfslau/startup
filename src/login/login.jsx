@@ -12,7 +12,16 @@ export function Login(p) {
     localStorage.setItem(usertext, passwordtext)
     p.setusername(usertext)
   }
-  function loginuser() {
+  async function loginuser() {
+    const response = await fetch('/login', {
+      method: 'post',
+      body: JSON.stringify({username: usertext, password: passwordtext}),
+      headers: {
+        'Content-type': 'application/json; charset-UTF-8',
+      },
+    });
+    // if (response = '200'):
+
     if (usertext && passwordtext) {
       const expectedpassword = localStorage.getItem(usertext)
       if (expectedpassword == passwordtext) {

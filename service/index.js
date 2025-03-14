@@ -47,6 +47,10 @@ app.post('/book_review', (req, res) => {
     res.send("book review added")   
 });
 
+app.get('/get_books', (req, res) => {
+    res.send(book_reviews)
+});
+
 
 app.post('/movie_review', (req, res) => {
     const { username, title, review, stars } = req.body;
@@ -78,7 +82,7 @@ app.post('/add_friend', (req, res) => {
 });
 
 
-const port = 8080;
+const port = 4000;
 app.listen(port, () => {
     console.log(`server running on port ${port}`);
 });
