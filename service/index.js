@@ -10,13 +10,18 @@ let movie_reviews = [];
 let music_reviews = [];
 let friends = [];
 
+var apiRouter = express.Router();
+app.use(`/api`, apiRouter);
 
-app.post('/register', (req, res) => {
+
+apiRouter.post('/register', (req, res) => {
     const {username, password} = req.body;
     if (!username || !password) {
+        console.log('username and password')
         return res.status(400).send("username and password required")
     }
     if (users.find(user => user.username === username)) {
+        console.log('account already exists')
         return res.status(400).send("account already exists")
     }
     const newUser = {username, password};
@@ -26,7 +31,7 @@ app.post('/register', (req, res) => {
 
 
 
-app.post('/login', (req, res) => {
+apiRouter.post('/login', (req, res) => {
     const { username, password } = req.body;
     const user = users.find(user => user.username === username);
     if (!user) {
@@ -39,7 +44,7 @@ app.post('/login', (req, res) => {
 });
 
 
-app.post('/book_review', (req, res) => {
+apiRouter.post('/book_review', (req, res) => {
     const { username, title, author, review, stars } = req.body;
     if( !title || !author || !review || !stars) {
         return res.status(400).send('must fill all fields')
@@ -62,7 +67,7 @@ app.get('/get_music', (req, res) => {
     res.send(music_reviews)
 });
 
-app.post('/movie_review', (req, res) => {
+apiRouter.post('/movie_review', (req, res) => {
     const { username, title, review, stars } = req.body;
     if( !title || !review || !stars) {
         return res.status(400).send('must fill all fields')
@@ -73,7 +78,7 @@ app.post('/movie_review', (req, res) => {
 });
 
 
-app.post('/music_review', (req, res) => {
+apiRouter.post('/music_review', (req, res) => {
     const { username, title, artist, stars } = req.body;
     if( !title || !artist || !stars) {
         return res.status(400).send('must fill all fields')
@@ -84,7 +89,7 @@ app.post('/music_review', (req, res) => {
 });
 
 
-app.post('/add_friend', (req, res) => {
+apiRouter.post('/add_friend', (req, res) => {
     const {username, fname} = req.body;
     const friend = {username, fname};
     friends.push(friend);
@@ -92,7 +97,7 @@ app.post('/add_friend', (req, res) => {
 });
 
 
-const port = 4000;
+const port = 3000;
 app.listen(port, () => {
     console.log(`server running on port ${port}`);
 });

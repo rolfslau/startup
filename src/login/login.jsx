@@ -53,13 +53,13 @@ export function Login(p) {
     <main>
         <div className="username">
         username:
-        <input type="username" onChange={changeusernametext}></input>
+        <input type="username" id='login' onChange={changeusernametext}></input>
         </div>
         <br></br>
         <br/>
         <div className="password">
         password:
-        <input type="password" onChange={(e)=>setpasswordtext(e.target.value)}/>
+        <input type="password" id='password' onChange={(e)=>setpasswordtext(e.target.value)}/>
         </div>
 
         
