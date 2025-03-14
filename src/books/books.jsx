@@ -2,18 +2,18 @@ import React, {useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
 
 export function get_quote() {
-  const [quote, setQuote] = React.useState(null);
+  const [quote, setQuote] = React.useState({quote: 'loading...'});
   useEffect(() => {
-    fetch('https://movie-quote-api.herokuapp.com/v1/quote?censored')
+    fetch('https://quote.cs260.click')
     .then((response) => response.json())
     .then((data) => {
-      setQuote(data.quote);
+      setQuote(data);
       // setCharacter(data.character);
     })
   }, [])
 
   return (
-    <p>{quote}</p>
+    <p>{quote.quote} <br/> {quote.author}</p>
   )
 };
 

@@ -16,7 +16,8 @@ export function Login(p) {
         'Content-type': 'application/json; charset-UTF-8',
       },
     });
-    if (response.status == 200) {
+    const jsonResponse = await response.json();
+    if (jsonResponse.status == 200) {
       alert('account created!')
       // localStorage.setItem(usertext, passwordtext)
       // p.setusername(usertext)
@@ -37,7 +38,8 @@ export function Login(p) {
         'Content-type': 'application/json; charset-UTF-8',
       },
     });
-     if (response.status == 200) {
+    const jsonResponse = await response.json();
+     if (jsonResponse.status == 200) {
     // if (usertext && passwordtext) {
       // const expectedpassword = localStorage.getItem(usertext)
       // if (expectedpassword == passwordtext) {
