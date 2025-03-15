@@ -49,11 +49,11 @@ apiRouter.post('/login', (req, res) => {
 apiRouter.post('/book_review', (req, res) => {
     const { username, title, author, review, stars } = req.body;
     if( !title || !author || !review || !stars) {
-        return res.status(400).send('must fill all fields')
+        return res.status(400).send({message: 'must fill all fields'})
     }
     const breview = { username, title, author, review, stars };
     book_reviews.push(breview);
-    return res.status(200).send("book review added")   
+    return res.status(200).send({message: "book review added"})   
 });
 
 app.get('/get_books', (req, res) => {
