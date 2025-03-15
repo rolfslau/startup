@@ -13,7 +13,7 @@ export function Login(p) {
       method: 'POST',
       body: JSON.stringify({username: usertext, password: passwordtext}),
       headers: {
-        'Content-type': 'application/json; charset-UTF-8',
+        'Content-type': 'application/json',
       },
     });
     const jsonResponse = await response.json();
@@ -35,7 +35,7 @@ export function Login(p) {
       method: 'POST',
       body: JSON.stringify({username: usertext, password: passwordtext}),
       headers: {
-        'Content-type': 'application/json; charset-UTF-8',
+        'Content-type': 'application/json',
       },
     });
     const jsonResponse = await response.json();

@@ -15,30 +15,34 @@ app.use(`/api`, apiRouter);
 
 apiRouter.post('/register', (req, res) => {
     const {username, password} = req.body;
+    console.log(req.body)
     if (!username || !password) {
-        console.log('username and password')
-        return res.status(400).send("username and password required")
+        console.log('username and password required')
+        return res.status(400).send({status: 400, message: "username and password required"})
     }
     if (users.find(user => user.username === username)) {
         console.log('account already exists')
-        return res.status(400).send("account already exists")
+        return res.status(400).send({status:400, message: "account already exists"})
     }
     const newUser = {username, password};
     users.push(newUser);
-    return res.status(200).send("account created!!")
+    console.log(users)
+    return res.status(200).send({status: 200, message: "registration sucessful"})
 });
 
 
 apiRouter.post('/login', (req, res) => {
     const { username, password } = req.body;
+    console.log(req.body)
     const user = users.find(user => user.username === username);
+    console.log(user)
     if (!user) {
-        return res.status(400).send("no user found")
+        return res.status(400).send({status: 400, message: "no user found"})
     }
     if (user.password != password) {
-        return res.status(400).send("wrong password")
+        return res.status(400).send({status: 400, message: "wrong password"})
     }
-    return res.status(200).send("login successful")
+    return res.status(200).send({status: 200, message: 'login sucessful!'})
 });
 
 
