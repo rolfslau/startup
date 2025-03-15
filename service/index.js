@@ -1,8 +1,7 @@
 const express = require('express');
 const app = express();
 app.use(express.json());
-const cors = require('cors');
-app.use(cors());
+
 
 let users = [];
 let book_reviews = [];
@@ -28,7 +27,6 @@ apiRouter.post('/register', (req, res) => {
     users.push(newUser);
     return res.status(200).send("account created!!")
 });
-
 
 
 apiRouter.post('/login', (req, res) => {

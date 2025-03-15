@@ -9,7 +9,7 @@ export function Login(p) {
     setusertext(e.target.value)
   }
   async function registeruser() {
-    const response = await fetch('/register', {
+    const response = await fetch('/api/register', {
       method: 'POST',
       body: JSON.stringify({username: usertext, password: passwordtext}),
       headers: {
@@ -31,7 +31,7 @@ export function Login(p) {
   }
   async function loginuser() {
 
-    const response = await fetch('/login', {
+    const response = await fetch('/api/login', {
       method: 'POST',
       body: JSON.stringify({username: usertext, password: passwordtext}),
       headers: {
