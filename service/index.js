@@ -59,7 +59,7 @@ apiRouter.post('/book_review', (req, res) => {
 });
 
 app.get('/get_books', (req, res) => {
-    res.send(book_reviews)
+    res.status(200).send(book_reviews)
 });
 
 app.get('/get_movies', (req, res) => {
