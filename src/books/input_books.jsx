@@ -9,25 +9,34 @@ export function Inputbooks() {
     const [author, setauthor] = React.useState('')
     const [review, setreview] = React.useState('')
     const [stars, setstars] = React.useState('')
-    function savereview(e) {
-        let bookReviews = JSON.parse(localStorage.getItem('bookreviews'));
-        if (!bookReviews) {
-            bookReviews = [];
+    async function savereview(e) {
+        // let bookReviews = JSON.parse(localStorage.getItem('bookreviews'));
+        // let bookReviews = await fetch('/api/get_books')
+        // if (!bookReviews) {
+        //     bookReviews = [];
+        // }
+        // let currReview = {
+        //     title: book,
+        //     author: author,
+        //     review: review,
+        //     stars: stars,
+        // }
+        const response = await fetch('/api/book_review', {
+            method: 'POST',
+            body: JSON.stringify({title: book, author: author, review: review, stars: stars}),
+            headers: {
+                'Content-type': 'application/json',
+            },
+            });
+        const jsonResponse = await response.json();
+        if (jsonResponse.status == 200) {
+            navigate('/books')
         }
-        let currReview = {
-            title: book,
-            author: author,
-            review: review,
-            stars: stars,
+        else {alert("error adding review")}
+        // bookReviews.push(currReview);
+        // localStorage.setItem('bookreviews', JSON.stringify(bookReviews));
+        // navigate('/books')
         }
-        // currReview.push(book);
-        // currReview.push(author);
-        // currReview.push(review);
-        // currReview.push(stars);
-        bookReviews.push(currReview);
-        localStorage.setItem('bookreviews', JSON.stringify(bookReviews));
-        navigate('/books')
-    }
 
     return (
         <main>
