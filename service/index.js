@@ -60,13 +60,14 @@ apiRouter.post('/book_review', (req, res) => {
 
 
 apiRouter.post('/movie_review', (req, res) => {
+    console.log(req.body)
     const { title, review, stars } = req.body;
     if( !title || !review || !stars) {
-        return res.status(400).send('must fill all fields')
+        return res.status(400).send({message: 'must fill all fields'})
     }
     const mreview = { title, review, stars };
     movie_reviews.push(mreview);
-    return res.status(200).send({status: 200, message: "movie review added"})
+    return res.status(200).send({status: 200, message: 'movie review added'})
 });
 
 

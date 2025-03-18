@@ -23,10 +23,12 @@ export function Movies() {
   const [reviews, setReviews] = React.useState([]);
 
     useEffect(() => {
-      const savedReviews = localStorage.getItem('moviereviews');
-      if (savedReviews) {
-        setReviews(JSON.parse(savedReviews));
-      }
+      // const savedReviews = localStorage.getItem('moviereviews');
+      fetch('/api/get_movies')
+      .then((response) => response.json())
+      .then((reviews) => {
+        setReviews(reviews);
+      });
     }, []);
 
   return (

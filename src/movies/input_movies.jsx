@@ -6,20 +6,32 @@ export function Inputmovies() {
     const [movie, setmovie] = React.useState('')
     const [mreview, setmreview] = React.useState('')
     const [mstars, setmstars] = React.useState('')
-    function savereview(e) {
-        let movieReviews = JSON.parse(localStorage.getItem('moviereviews'));
-        if (!movieReviews) {
-            movieReviews = [];
+    async function savereview(e) {
+        // let movieReviews = JSON.parse(localStorage.getItem('moviereviews'));
+        // if (!movieReviews) {
+        //     movieReviews = [];
+        // }
+        // let currReview = {
+        //     title: movie,
+        //     review: mreview,
+        //     stars: mstars,
+        // }
+        const response = await fetch('/api/movie_review', {
+            method: 'POST',
+            body: JSON.stringify({title: movie, review: mreview, stars: mstars}),
+            headers: {
+                'Content-type': 'application/json',
+            },
+        });
+        const jsonResponse = await response.json();
+        if (jsonResponse.status == 200) {
+            navigate('/movies')
         }
-        let currReview = {
-            title: movie,
-            review: mreview,
-            stars: mstars,
+        else {alert("error adding review")}
+    //     movieReviews.push(currReview);
+    //     localStorage.setItem('moviereviews', JSON.stringify(movieReviews));
+    //     navigate('/movies')
         }
-        movieReviews.push(currReview);
-        localStorage.setItem('moviereviews', JSON.stringify(movieReviews));
-        navigate('/movies')
-    }
     return (
         <main>
             <label htmlFor="text">Title </label>
