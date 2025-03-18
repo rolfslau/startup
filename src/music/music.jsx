@@ -21,12 +21,15 @@ export function Music() {
   const [reviews, setReviews] = React.useState([]);
 
     useEffect(() => {
-      const savedReviews = localStorage.getItem('musicreviews');
-      if (savedReviews) {
-        setReviews(JSON.parse(savedReviews));
-      }
+      // const savedReviews = localStorage.getItem('musicreviews');
+      fetch('/api/get_music')
+      .then((response) => response.json())
+      .then((reviews) => {
+        setReviews(reviews);
+      });
     }, []);
 
+    
   return (
     <main>
 

@@ -6,19 +6,31 @@ export function Inputmusic() {
     const [music, setmusic] = React.useState('')
     const [artist, setartist] = React.useState('')
     const [mustars, setmustars] = React.useState('')
-    function savereview(e) {
-        let musicReviews = JSON.parse(localStorage.getItem('musicreviews'));
-        if (!musicReviews) {
-            musicReviews = [];
+    async function savereview(e) {
+        // let musicReviews = JSON.parse(localStorage.getItem('musicreviews'));
+        // if (!musicReviews) {
+        //     musicReviews = [];
+        // }
+        // let currReview = {
+        //     title: music,
+        //     artist: artist,
+        //     stars: mustars,
+        // }
+        const response = await fetch('/api/music_review', {
+            method: 'POST',
+            body: JSON.stringify({title: music, artist: artist, stars: mustars}),
+            headers: {
+                'Content-type': 'application/json',
+            },
+        });
+        const jsonResponse = await response.json();
+        if (jsonResponse.status == 200) {
+            navigate('/music')
         }
-        let currReview = {
-            title: music,
-            artist: artist,
-            stars: mustars,
-        }
-        musicReviews.push(currReview);
-        localStorage.setItem('musicreviews', JSON.stringify(musicReviews));
-        navigate('/music')
+        else {alert("error adding review")}
+        // musicReviews.push(currReview);
+        // localStorage.setItem('musicreviews', JSON.stringify(musicReviews));
+        // navigate('/music')
     }
     return (
         <main>
