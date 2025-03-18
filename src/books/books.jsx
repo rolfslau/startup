@@ -17,29 +17,31 @@ export function get_quote() {
   )
 };
 
-async function saved_reviews() {
-  const response = await fetch('/api/get_books', {
-    method: 'GET',
-    body: JSON.stringify({username: usertext, password: passwordtext}),
-    headers: {
-      'Content-type': 'application/json',
-    },
-  });
-  const jsonResponse = await response.json();
-     if (jsonResponse.status == 200) {
-      return jsonResponse;
-     }
-}
+// async function saved_reviews() {
+//   const response = await fetch('/api/get_books', {
+//     method: 'GET',
+//     body: JSON.stringify({username: usertext, password: passwordtext}),
+//     headers: {
+//       'Content-type': 'application/json',
+//     },
+//   });
+//   const jsonResponse = await response.json();
+//      if (jsonResponse.status == 200) {
+//       return jsonResponse;
+//      }
+// }
 
 export function Books(p) {
     const [reviews, setReviews] = React.useState([]);
     useEffect(() => {
       // const savedReviews = localStorage.getItem('bookreviews');
-      savedReviews = saved_reviews();
-      if (savedReviews) {
-        setReviews(JSON.parse(savedReviews));
-      }
-    }, []);
+        fetch('/api/get_books')
+          .then((response) => response.json())
+          .then((reviews) => {
+            setReviews(reviews);
+          }); 
+        }, []); 
+      
 
     
   

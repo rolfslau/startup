@@ -58,40 +58,40 @@ apiRouter.post('/book_review', (req, res) => {
     return res.status(200).send({status: 200, message: 'book review added'})   
 });
 
-app.get('/get_books', (req, res) => {
-    res.status(200).send(book_reviews)
-});
-
-app.get('/get_movies', (req, res) => {
-    res.send(movie_reviews)
-});
-
-
-app.get('/get_music', (req, res) => {
-    res.send(music_reviews)
-});
 
 apiRouter.post('/movie_review', (req, res) => {
-    const { username, title, review, stars } = req.body;
+    const { title, review, stars } = req.body;
     if( !title || !review || !stars) {
         return res.status(400).send('must fill all fields')
     }
-    const mreview = { username, title, review, stars };
+    const mreview = { title, review, stars };
     movie_reviews.push(mreview);
-    return res.status(200).send("movie review added")
+    return res.status(200).send({status: 200, message: "movie review added"})
 });
 
 
 apiRouter.post('/music_review', (req, res) => {
-    const { username, title, artist, stars } = req.body;
+    const { title, artist, stars } = req.body;
     if( !title || !artist || !stars) {
         return res.status(400).send('must fill all fields')
     }
-    const mureview = { username, title, artist, stars };
+    const mureview = { title, artist, stars };
     music_reviews.push(mureview);
-    return res.status(200).send("music review added")
+    return res.status(200).send({status: 200, message: "music review added"})
 });
 
+apiRouter.get('/get_books', (req, res) => {
+    res.send(book_reviews)
+});
+
+apiRouter.get('/get_movies', (req, res) => {
+    res.send(movie_reviews)
+});
+
+
+apiRouter.get('/get_music', (req, res) => {
+    res.send(music_reviews)
+});
 
 apiRouter.post('/add_friend', (req, res) => {
     const {username, fname} = req.body;
