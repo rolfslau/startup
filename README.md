@@ -118,11 +118,11 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Node.js/Express HTTP service** - 
-- [ ] **Static middleware for frontend** - 
-- [ ] **Calls to third party endpoints** - 
-- [ ] **Backend service endpoints** - 
-- [ ] **Frontend calls service endpoints** - 
+- [x] **Node.js/Express HTTP service** - done
+- [x] **Static middleware for frontend** - done
+- [x] **Calls to third party endpoints** - cs quotes
+- [x] **Backend service endpoints** - for pushing reviews and displaying
+- [x] **Frontend calls service endpoints** - for saving and dipslaying reviews
 
 ## 🚀 DB/Login deliverable
 
