@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 app.use(express.json());
-
+app.use(express.static('public'));
 
 let users = [];
 let book_reviews = [];
@@ -102,7 +102,7 @@ apiRouter.post('/add_friend', (req, res) => {
 });
 
 
-const port = 3000;
+const port = process.argv.length > 2 ? process.argv[2] : 3000;
 app.listen(port, () => {
     console.log(`server running on port ${port}`);
 });
