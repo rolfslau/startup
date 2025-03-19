@@ -12,6 +12,8 @@ import { Friends } from './friends/friends';
 import { Inputbooks } from './books/input_books';
 import { Inputmovies } from './movies/input_movies';
 import { Inputmusic } from './music/input_music';
+import { Inputfriend } from './friends/input_friend';
+
 
 export default function App() {
   return (
@@ -36,6 +38,9 @@ export default function App() {
     else if (value == "input_music") {
       navigate('/input_music')
     }
+    else if (value == "input_friend") {
+      navigate('/input_friend')
+    }
   }
   return ( 
   // <BrowserRouter>
@@ -55,6 +60,7 @@ export default function App() {
           <option value="input_books">books</option>
           <option value="input_movies">movies</option>
           <option value="input_music">music</option>
+          <option value="input_friend">new friend</option>
 
         </select>
 
@@ -76,6 +82,7 @@ export default function App() {
   <Route path='/input_books' element={<Inputbooks />} />
   <Route path='/input_movies' element={<Inputmovies />} />
   <Route path='/input_music' element={<Inputmusic />} />
+  <Route path='/input_friend' element={<Inputfriend />} />
   <Route path='*' element={<NotFound />} />
 </Routes>
 

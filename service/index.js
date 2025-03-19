@@ -95,10 +95,10 @@ apiRouter.get('/get_music', (req, res) => {
 });
 
 apiRouter.post('/add_friend', (req, res) => {
-    const {username, fname} = req.body;
-    const friend = {username, fname};
+    const {username} = req.body;
+    const friend = {username};
     friends.push(friend);
-    res.send("new friend added")
+    res.status(200).send({status: 200, message: 'new friend added'})
 });
 
 
