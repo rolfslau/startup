@@ -58,7 +58,15 @@ async function addMovie(user, movie) {
 }
 
 async function addMusic(user, music) {
-    await userCollection.updateOne({}) //HELP WITH THIS PART
+    await userCollection.updateOne(
+        { username: user.username },
+    { $push: {
+        music: {
+            title: music.title,
+            artist: music.artist,
+            stars: music.stars
+        }
+    }}); //HELP WITH THIS PART
 }
 
 function getBooks(user) {
