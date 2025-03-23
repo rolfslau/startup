@@ -5,10 +5,10 @@ const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostna
 const client = new MongoClient(url);
 const db = client.db('simon');
 const userCollection = db.collection('user');
-const books = db.collection('books');
-const movies = db.collection('movies');
-const music = db.collection('music');
-const friends = db.collection('friends');
+const bookCollection = db.collection('books');
+const movieCollection = db.collection('movies');
+const musicCollection = db.collection('music');
+const friendCollection = db.collection('friends');
 
 (async function testConnection() {
     try {
@@ -34,15 +34,15 @@ async function addFriend(user, friend) {
 }
 
 async function addBook(user, book) {
-    await userCollection.updateOne({}) //HELP WITH THIS PART
+    await bookCollection.updateOne({}) //HELP WITH THIS PART
 }
 
 async function addMovie(user, movie) {
-    await userCollection.updateOne({}) //HELP WITH THIS PART
+    await movieCollection.updateOne({}) //HELP WITH THIS PART
 }
 
 async function addMusic(user, music) {
-    await userCollection.updateOne({}) //HELP WITH THIS PART
+    await musicCollection.updateOne({}) //HELP WITH THIS PART
 }
 
 function getBooks() {}
@@ -51,3 +51,14 @@ function getMovies() {}
 
 function getMusic() {}
 
+module.exports = {
+    getUser,
+    addUser,
+    addFriend,
+    addBook,
+    addMovie,
+    addMusic,
+    getBooks,
+    getMovies,
+    getMusic
+  };
