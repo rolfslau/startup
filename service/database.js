@@ -34,15 +34,15 @@ async function addFriend(user, friend) {
 }
 
 async function addBook(user, book) {
-    await bookCollection.updateOne({}) //HELP WITH THIS PART
+    await userCollection.updateOne({}) //HELP WITH THIS PART
 }
 
 async function addMovie(user, movie) {
-    await movieCollection.updateOne({}) //HELP WITH THIS PART
+    await userCollection.updateOne({}) //HELP WITH THIS PART
 }
 
 async function addMusic(user, music) {
-    await musicCollection.updateOne({}) //HELP WITH THIS PART
+    await userCollection.updateOne({}) //HELP WITH THIS PART
 }
 
 function getBooks() {}
