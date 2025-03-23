@@ -34,8 +34,16 @@ async function addFriend(user, friend) {
 }
 
 async function addBook(user, book) {
-    await userCollection.updateOne({}) //HELP WITH THIS PART
-}
+    await userCollection.updateOne(
+        { username: user.username }, 
+        {$push: {
+        books: {
+        title: book.title,
+        author: book.author,
+        review: book.review,
+        stars: book.stars,
+    }
+}});} //HELP WITH THIS PART
 
 async function addMovie(user, movie) {
     await userCollection.updateOne({}) //HELP WITH THIS PART
@@ -45,11 +53,13 @@ async function addMusic(user, music) {
     await userCollection.updateOne({}) //HELP WITH THIS PART
 }
 
-function getBooks() {}
+function getBooks(user) {
 
-function getMovies() {}
+}
 
-function getMusic() {}
+function getMovies(user) {}
+
+function getMusic(user) {}
 
 module.exports = {
     getUser,
