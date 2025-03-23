@@ -19,3 +19,10 @@ const friends = db.collection('friends');
       process.exit(1);
     }
   })();
+
+
+  function getUser(username) {
+    return userCollection.findOne({ username: username });
+  }
+
+  
