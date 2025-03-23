@@ -44,3 +44,10 @@ async function addMovie(user, movie) {
 async function addMusic(user, music) {
     await userCollection.updateOne({}) //HELP WITH THIS PART
 }
+
+function getBooks() {}
+
+function getMovies() {}
+
+function getMusic() {}
+
