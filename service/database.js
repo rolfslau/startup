@@ -29,3 +29,18 @@ async function addUser(user) {
     await userCollection.insertOne(user);
 }
 
+async function addFriend(user, friend) {
+    await userCollection.updateOne({}) //HELP WITH THIS PART
+}
+
+async function addBook(user, book) {
+    await userCollection.updateOne({}) //HELP WITH THIS PART
+}
+
+async function addMovie(user, movie) {
+    await userCollection.updateOne({}) //HELP WITH THIS PART
+}
+
+async function addMusic(user, music) {
+    await userCollection.updateOne({}) //HELP WITH THIS PART
+}
