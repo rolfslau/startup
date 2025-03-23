@@ -21,8 +21,11 @@ const friends = db.collection('friends');
   })();
 
 
-  function getUser(username) {
+function getUser(username) {
     return userCollection.findOne({ username: username });
   }
 
-  
+async function addUser(user) {
+    await userCollection.insertOne(user);
+}
+
