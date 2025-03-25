@@ -35,7 +35,8 @@ apiRouter.post('/register', (req, res) => {
 apiRouter.post('/login', (req, res) => {
     const { username, password } = req.body;
     console.log(req.body)
-    const user = users.find(user => user.username === username);
+    // const user = users.find(user => user.username === username);
+    const user = DB.getUser(username)
     console.log(user)
     if (!user) {
         return res.status(400).send({status: 400, message: "no user found"})
@@ -108,6 +109,7 @@ apiRouter.post('/add_friend', (req, res) => {
     const {username} = req.body;
     const friend = {username};
     friends.push(friend);
+    DB.addFriend(user, friend)
     res.status(200).send({status: 200, message: 'new friend added'})
 });
 
