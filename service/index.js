@@ -31,10 +31,11 @@ apiRouter.post('/register', (req, res) => {
         return res.status(400).send({status:400, message: "account already exists"})
     }
     let friends = [];
-    const newUser = {username, password, friends};
-    DB.addUser(newUser)
+    // const newUser = {username, password, friends};
+    const newUser = await createUser(username, password, friends)
+    setAuthCookie(res, newUser.token);
     // users.push(newUser);
-    console.log(users)
+    // console.log(users)
     return res.status(200).send({status: 200, message: "registration sucessful"})
 });
 
@@ -120,6 +121,30 @@ apiRouter.post('/add_friend', (req, res) => {
     res.status(200).send({status: 200, message: 'new friend added'})
 });
 
+
+async function createUser(username, password, friends) {
+    const passwordHash = await bcrypt.hash(password, 10);
+  
+    const user = {
+      username: username,
+      password: passwordHash,
+      friends: friends,
+      token: uuid.v4(),
+    };
+    // users.push(user);
+    DB.addUser(user)
+  
+    return user;
+  }
+
+
+  function setAuthCookie(res, authToken) {
+    res.cookie(authCookieName, authToken, {
+      secure: true,
+      httpOnly: true,
+      sameSite: 'strict',
+    });
+  }
 
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
 app.listen(port, () => {
