@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 app.use(express.static('public'));
+const DB = require('./database.js');
 
 let users = [];
 let book_reviews = [];
@@ -54,6 +55,7 @@ apiRouter.post('/book_review', (req, res) => {
     const breview = { title, author, review, stars };
     console.log(breview)
     book_reviews.push(breview);
+    DB.addBook(breview)
     console.log(book_reviews)
     return res.status(200).send({status: 200, message: 'book review added'})   
 });
@@ -67,6 +69,7 @@ apiRouter.post('/movie_review', (req, res) => {
     }
     const mreview = { title, review, stars };
     movie_reviews.push(mreview);
+    DB.addMovie(mreview)
     return res.status(200).send({status: 200, message: 'movie review added'})
 });
 
@@ -78,6 +81,7 @@ apiRouter.post('/music_review', (req, res) => {
     }
     const mureview = { title, artist, stars };
     music_reviews.push(mureview);
+    DB.addMusic(mureview)
     return res.status(200).send({status: 200, message: "music review added"})
 });
 
