@@ -26,7 +26,7 @@ apiRouter.post('/register', (req, res) => {
         return res.status(400).send({status: 400, message: "username and password required"})
     }
     // if (users.find(user => user.username === username)) {
-    if  (DB.getUser(username) {
+    if  (await findUser('username', username)) {
         console.log('account already exists')
         return res.status(400).send({status:400, message: "account already exists"})
     }
@@ -42,18 +42,32 @@ apiRouter.post('/register', (req, res) => {
 
 apiRouter.post('/login', (req, res) => {
     const { username, password } = req.body;
-    console.log(req.body)
     // const user = users.find(user => user.username === username);
     const user = DB.getUser(username)
-    console.log(user)
-    if (!user) {
-        return res.status(400).send({status: 400, message: "no user found"})
+    if (user) {
+        if (await bcrypt.compare(password, user.password)) {
+            user.token = uuid.v4();
+            setAuthCookie(res, user.token);
+            res.send({username: user.username});
+        }
     }
-    if (user.password != password) {
-        return res.status(400).send({status: 400, message: "wrong password"})
-    }
-    return res.status(200).send({status: 200, message: 'login sucessful!'})
+    // if (!user) {
+    //     return res.status(400).send({status: 400, message: "no user found"})
+    // }
+    // if (user.password != password) {
+    //     return res.status(400).send({status: 400, message: "wrong password"})
+    // }
+    return res.status(400).send({status: 400, message: 'unauthorized'})
 });
+
+apiRouter.delete('/logout', (req, res) => {
+    const user = await findUser('token', req.cookies[authCookieName]);
+    if (user) {
+        delete user.token;
+    }
+    res.clearCookie(authCookieName);
+    res.status(200).send();
+})
 
 
 apiRouter.post('/book_review', (req, res) => {
@@ -144,6 +158,13 @@ async function createUser(username, password, friends) {
       httpOnly: true,
       sameSite: 'strict',
     });
+  }
+
+
+  async function findUser(field, value) {
+    if (!value) return null;
+  
+    return users.find((u) => u[field] === value);
   }
 
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
