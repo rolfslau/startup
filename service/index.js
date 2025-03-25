@@ -86,15 +86,21 @@ apiRouter.post('/music_review', (req, res) => {
 });
 
 apiRouter.get('/get_books', (req, res) => {
+    // res.send(book_reviews)
+    book_reviews = DB.getBooks(user)
     res.send(book_reviews)
 });
 
 apiRouter.get('/get_movies', (req, res) => {
+    // res.send(movie_reviews)
+    movie_reviews = DB.getMovies(user)
     res.send(movie_reviews)
 });
 
 
 apiRouter.get('/get_music', (req, res) => {
+    // res.send(music_reviews)
+    music_reviews = DB.getMusic(user)
     res.send(music_reviews)
 });
 
