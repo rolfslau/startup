@@ -33,49 +33,39 @@ async function addFriend(user, friend) {
     await userCollection.updateOne({}) //HELP WITH THIS PART
 }
 
-async function addBook(user, book) {
-    await userCollection.updateOne(
-        { username: user.username }, 
-        {$push: {
-        books: {
-        title: book.title,
-        author: book.author,
-        review: book.review,
-        stars: book.stars,
-    }
-}});} //HELP WITH THIS PART
+async function addBook(book) {
+    await bookCollection.insertOne(book);
+} //HELP WITH THIS PART
 
-async function addMovie(user, movie) {
-    await userCollection.updateOne(
-        { username: user.username},
-    {$push: {
-        movies: {
-            title: movie.title,
-            review: movie.review,
-            stars: movie.stars
-        }
-    }}); //HELP WITH THIS PART
-}
+async function addMovie(movie) {
+    await movieCollection.insertOne(movie);
+} //HELP WITH THIS PART
 
-async function addMusic(user, music) {
-    await userCollection.updateOne(
-        { username: user.username },
-    { $push: {
-        music: {
-            title: music.title,
-            artist: music.artist,
-            stars: music.stars
-        }
-    }}); //HELP WITH THIS PART
-}
+async function addMusic(music) {
+    await musicCollection.insertOne(music);
+} //HELP WITH THIS PART
 
 function getBooks(user) {
-
+    const query = { username: user };
+    const options = { sort: {title: 1}};
+    const cursor = bookCollection.find(query);
+    return cursor.toArray();
 }
 
-function getMovies(user) {}
+function getMovies(user) {
+    const query = { username: user };
+    const options = { sort: {title: 1}};
+    const cursor = movieCollection.find(query);
+    return cursor.toArray();
+}
 
-function getMusic(user) {}
+
+function getMusic(user) {
+    const query = { username: user };
+    const options = { sort: {title: 1}};
+    const cursor = musicCollection.find(query);
+    return cursor.toArray();
+}
 
 module.exports = {
     getUser,
