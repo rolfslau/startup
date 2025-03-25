@@ -37,3 +37,13 @@ put = update something
 ## db deliverable:
 simon service --- authentication
 middleware chunk in example code on website
+
+
+to do:
+[] fix authentication for login
+[] make it so it actually logs you out
+[] finish mongo setup
+[] book reviews
+[] movie reviews
+[] music reviews
+[] adding friends

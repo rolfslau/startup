@@ -3,12 +3,16 @@ const app = express();
 app.use(express.json());
 app.use(express.static('public'));
 const DB = require('./database.js');
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+const bcrypt = require('bcryptjs');
+const uuid = require('uuid');
 
-let users = [];
-let book_reviews = [];
-let movie_reviews = [];
-let music_reviews = [];
-let friends = [];
+// let users = [];
+// let book_reviews = [];
+// let movie_reviews = [];
+// let music_reviews = [];
+// let friends = [];
 
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
@@ -21,12 +25,15 @@ apiRouter.post('/register', (req, res) => {
         console.log('username and password required')
         return res.status(400).send({status: 400, message: "username and password required"})
     }
-    if (users.find(user => user.username === username)) {
+    // if (users.find(user => user.username === username)) {
+    if  (DB.getUser(username) {
         console.log('account already exists')
         return res.status(400).send({status:400, message: "account already exists"})
     }
-    const newUser = {username, password};
-    users.push(newUser);
+    let friends = [];
+    const newUser = {username, password, friends};
+    DB.addUser(newUser)
+    // users.push(newUser);
     console.log(users)
     return res.status(200).send({status: 200, message: "registration sucessful"})
 });

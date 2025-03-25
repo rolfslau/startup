@@ -3,12 +3,11 @@ const config = require('./dbConfig.json');
 
 const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
 const client = new MongoClient(url);
-const db = client.db('simon');
+const db = client.db('startup');
 const userCollection = db.collection('user');
 const bookCollection = db.collection('books');
 const movieCollection = db.collection('movies');
 const musicCollection = db.collection('music');
-const friendCollection = db.collection('friends');
 
 (async function testConnection() {
     try {
@@ -30,7 +29,9 @@ async function addUser(user) {
 }
 
 async function addFriend(user, friend) {
-    await userCollection.updateOne({}) //HELP WITH THIS PART
+    let curr = getUser(user.username)
+    curr.friends.push(friend)
+    await userCollection.updateOne({username: curr.username}, {friends: curr.friends}) //HELP WITH THIS PART
 }
 
 async function addBook(book) {
@@ -46,24 +47,24 @@ async function addMusic(music) {
 } //HELP WITH THIS PART
 
 function getBooks(user) {
-    const query = { username: user };
-    const options = { sort: {title: 1}};
-    const cursor = bookCollection.find(query);
+    const query = { username: user.username };
+    // const options = { sort: {title: 1}};
+    const cursor = bookCollection.find(query, {});
     return cursor.toArray();
 }
 
 function getMovies(user) {
-    const query = { username: user };
-    const options = { sort: {title: 1}};
-    const cursor = movieCollection.find(query);
+    const query = { username: user.username };
+    // const options = { sort: {title: 1}};
+    const cursor = movieCollection.find(query, {});
     return cursor.toArray();
 }
 
 
 function getMusic(user) {
-    const query = { username: user };
-    const options = { sort: {title: 1}};
-    const cursor = musicCollection.find(query);
+    const query = { username: user.username };
+    // const options = { sort: {title: 1}};
+    const cursor = musicCollection.find(query, {});
     return cursor.toArray();
 }
 
