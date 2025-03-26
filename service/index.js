@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 const bcrypt = require('bcryptjs');
 const uuid = require('uuid');
+const authCookieName = 'token';
 
 // let users = [];
 // let book_reviews = [];
@@ -18,7 +19,7 @@ var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 
-apiRouter.post('/register', (req, res) => {
+apiRouter.post('/register', async (req, res) => {
     const {username, password} = req.body;
     console.log(req.body)
     if (!username || !password) {
@@ -26,7 +27,7 @@ apiRouter.post('/register', (req, res) => {
         return res.status(400).send({status: 400, message: "username and password required"})
     }
     // if (users.find(user => user.username === username)) {
-    if  (await findUser('username', username)) {
+    if  (await DB.getUser(username)) {
         console.log('account already exists')
         return res.status(400).send({status:400, message: "account already exists"})
     }
@@ -40,10 +41,10 @@ apiRouter.post('/register', (req, res) => {
 });
 
 
-apiRouter.post('/login', (req, res) => {
+apiRouter.post('/login', async (req, res) => {
     const { username, password } = req.body;
     // const user = users.find(user => user.username === username);
-    const user = DB.getUser(username)
+    const user = await DB.getUserToken('token', req.cookies[authCookieName])
     if (user) {
         if (await bcrypt.compare(password, user.password)) {
             user.token = uuid.v4();
@@ -60,8 +61,8 @@ apiRouter.post('/login', (req, res) => {
     return res.status(400).send({status: 400, message: 'unauthorized'})
 });
 
-apiRouter.delete('/logout', (req, res) => {
-    const user = await findUser('token', req.cookies[authCookieName]);
+apiRouter.delete('/logout', async (req, res) => {
+    const user = await DB.getUserToken(req.cookies[authCookieName]);
     if (user) {
         delete user.token;
     }
@@ -164,7 +165,8 @@ async function createUser(username, password, friends) {
   async function findUser(field, value) {
     if (!value) return null;
   
-    return users.find((u) => u[field] === value);
+    // return users.find((u) => u[field] === value);
+    return DB.getUser((u) => u[field] === value);
   }
 
 const port = process.argv.length > 2 ? process.argv[2] : 3000;

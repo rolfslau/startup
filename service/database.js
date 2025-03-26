@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb');
 const config = require('./dbConfig.json');
 
-const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
+const url = `mongodb+srv://${config.username}:${config.password}@${config.hostname}`;
 const client = new MongoClient(url);
 const db = client.db('startup');
 const userCollection = db.collection('user');
@@ -61,6 +61,11 @@ function getMovies(user) {
 }
 
 
+async function getUserToken(value) {
+    return userCollection.findOne({ token: value });
+  }
+
+
 function getMusic(user) {
     const query = { username: user.username };
     // const options = { sort: {title: 1}};
@@ -71,6 +76,7 @@ function getMusic(user) {
 module.exports = {
     getUser,
     addUser,
+    getUserToken,
     addFriend,
     addBook,
     addMovie,
