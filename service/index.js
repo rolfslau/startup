@@ -45,11 +45,12 @@ apiRouter.post('/login', async (req, res) => {
     const { username, password } = req.body;
     // const user = users.find(user => user.username === username);
     const user = await DB.getUserToken('token', req.cookies[authCookieName])
+    // const user = await DB.getUser(username)
     if (user) {
         if (await bcrypt.compare(password, user.password)) {
             user.token = uuid.v4();
             setAuthCookie(res, user.token);
-            res.send({username: user.username});
+            res.status(200).send({username: user.username});
         }
     }
     // if (!user) {
@@ -58,7 +59,8 @@ apiRouter.post('/login', async (req, res) => {
     // if (user.password != password) {
     //     return res.status(400).send({status: 400, message: "wrong password"})
     // }
-    return res.status(400).send({status: 400, message: 'unauthorized'})
+    else {
+    return res.status(400).send({status: 400, message: 'unauthorized'})}
 });
 
 apiRouter.delete('/logout', async (req, res) => {
