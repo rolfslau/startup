@@ -39,7 +39,7 @@ export function Login(p) {
       },
     });
     const jsonResponse = await response.json();
-     if (jsonResponse.status == 200) {
+     if (response.status == 200) {
     // if (usertext && passwordtext) {
       // const expectedpassword = localStorage.getItem(usertext)
       // if (expectedpassword == passwordtext) {

@@ -43,24 +43,20 @@ apiRouter.post('/register', async (req, res) => {
 
 apiRouter.post('/login', async (req, res) => {
     const { username, password } = req.body;
+    console.log(username, password)
     // const user = users.find(user => user.username === username);
-    const user = await DB.getUserToken('token', req.cookies[authCookieName])
-    // const user = await DB.getUser(username)
+    // const user = await DB.getUserToken('token', req.cookies[authCookieName])
+    const user = await DB.getUser(username)
+    console.log(user)
     if (user) {
         if (await bcrypt.compare(password, user.password)) {
             user.token = uuid.v4();
             setAuthCookie(res, user.token);
-            res.status(200).send({username: user.username});
+            return res.status(200).send({username: user.username});
         }
     }
-    // if (!user) {
-    //     return res.status(400).send({status: 400, message: "no user found"})
-    // }
-    // if (user.password != password) {
-    //     return res.status(400).send({status: 400, message: "wrong password"})
-    // }
-    else {
-    return res.status(400).send({status: 400, message: 'unauthorized'})}
+
+    return res.status(400).send({status: 400, message: 'unauthorized'})
 });
 
 apiRouter.delete('/logout', async (req, res) => {
@@ -140,7 +136,8 @@ apiRouter.post('/add_friend', (req, res) => {
 
 
 async function createUser(username, password, friends) {
-    const passwordHash = await bcrypt.hash(password, 10);
+    const passwordHash = await bcrypt.hash(password, await bcrypt.genSalt(10));
+    console.log(await bcrypt.compare(password, passwordHash))
   
     const user = {
       username: username,
