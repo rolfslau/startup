@@ -70,15 +70,15 @@ apiRouter.delete('/logout', async (req, res) => {
 
 
 apiRouter.post('/book_review', (req, res) => {
-    const { title, author, review, stars } = req.body;
+    const { username, title, author, review, stars } = req.body;
     if( !title || !author || !review || !stars) {
         return res.status(400).send({message: 'must fill all fields'})
     }
-    const breview = { title, author, review, stars };
+    const breview = { username, title, author, review, stars };
     console.log(breview)
-    book_reviews.push(breview);
+    // book_reviews.push(breview);
     DB.addBook(breview)
-    console.log(book_reviews)
+    // console.log(book_reviews)
     return res.status(200).send({status: 200, message: 'book review added'})   
 });
 
@@ -89,7 +89,7 @@ apiRouter.post('/movie_review', (req, res) => {
     if( !title || !review || !stars) {
         return res.status(400).send({message: 'must fill all fields'})
     }
-    const mreview = { title, review, stars };
+    const mreview = { username, title, review, stars };
     movie_reviews.push(mreview);
     DB.addMovie(mreview)
     return res.status(200).send({status: 200, message: 'movie review added'})
@@ -101,7 +101,7 @@ apiRouter.post('/music_review', (req, res) => {
     if( !title || !artist || !stars) {
         return res.status(400).send('must fill all fields')
     }
-    const mureview = { title, artist, stars };
+    const mureview = { username, title, artist, stars };
     music_reviews.push(mureview);
     DB.addMusic(mureview)
     return res.status(200).send({status: 200, message: "music review added"})
@@ -127,10 +127,10 @@ apiRouter.get('/get_music', (req, res) => {
 });
 
 apiRouter.post('/add_friend', (req, res) => {
-    const {username} = req.body;
-    const friend = {username};
-    friends.push(friend);
-    DB.addFriend(user, friend)
+    const {username, friendname} = req.body;
+    const friend = {friendname};
+    // friends.push(friend);
+    DB.addFriend(username, friend)
     res.status(200).send({status: 200, message: 'new friend added'})
 });
 

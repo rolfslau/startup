@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export function Inputmovies() {
+export function Inputmovies({username}) {
     const navigate = useNavigate()
     const [movie, setmovie] = React.useState('')
     const [mreview, setmreview] = React.useState('')
@@ -18,7 +18,7 @@ export function Inputmovies() {
         // }
         const response = await fetch('/api/movie_review', {
             method: 'POST',
-            body: JSON.stringify({title: movie, review: mreview, stars: mstars}),
+            body: JSON.stringify({username: username, title: movie, review: mreview, stars: mstars}),
             headers: {
                 'Content-type': 'application/json',
             },

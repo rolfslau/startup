@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export function Inputmusic() {
+export function Inputmusic({username}) {
     const navigate = useNavigate()
     const [music, setmusic] = React.useState('')
     const [artist, setartist] = React.useState('')
@@ -18,7 +18,7 @@ export function Inputmusic() {
         // }
         const response = await fetch('/api/music_review', {
             method: 'POST',
-            body: JSON.stringify({title: music, artist: artist, stars: mustars}),
+            body: JSON.stringify({username: username, title: music, artist: artist, stars: mustars}),
             headers: {
                 'Content-type': 'application/json',
             },

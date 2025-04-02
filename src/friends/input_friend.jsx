@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export function Inputfriend() {
+export function Inputfriend({username}) {
     const navigate = useNavigate()
     const [friend, setfriend] = React.useState('')
     async function savefriend(e) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export function Inputbooks() {
+export function Inputbooks({username}) {
     const navigate = useNavigate()
     // const [book, setbook, [author, setauthor], [review, setreview], [stars, setstars]] = React.useState
     // const [bookreviews, setbookReviews] = React.useState([])
@@ -23,7 +23,7 @@ export function Inputbooks() {
         // }
         const response = await fetch('/api/book_review', {
             method: 'POST',
-            body: JSON.stringify({title: book, author: author, review: review, stars: stars}),
+            body: JSON.stringify({username: username, title: book, author: author, review: review, stars: stars}),
             headers: {
                 'Content-type': 'application/json',
             },

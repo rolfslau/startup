@@ -77,12 +77,12 @@ export default function App() {
   <Route path='/' element={<Login setusername = {setusername}/>} exact />
   <Route path='/music' element={<Music />} />
   <Route path='/movies' element={<Movies />} />
-  <Route path='/books' element={<Books username = {username}/>} />
+  <Route path='/books' element={<Books />} />
   <Route path='/friends' element={<Friends />} />
-  <Route path='/input_books' element={<Inputbooks />} />
-  <Route path='/input_movies' element={<Inputmovies />} />
-  <Route path='/input_music' element={<Inputmusic />} />
-  <Route path='/input_friend' element={<Inputfriend />} />
+  <Route path='/input_books' element={<Inputbooks username={username}/>} />
+  <Route path='/input_movies' element={<Inputmovies username={username}/>} />
+  <Route path='/input_music' element={<Inputmusic username={username}/>} />
+  <Route path='/input_friend' element={<Inputfriend username={username}/>} />
   <Route path='*' element={<NotFound />} />
 </Routes>
 
