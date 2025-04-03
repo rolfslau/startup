@@ -66,6 +66,12 @@ async function getMovies(user) {
     return movies;
 }
 
+async function getFriends(user) {
+  const found = userCollection.findOne(user.username)
+  friends = found.friends
+  return friends
+}
+
 
 async function getUserToken(value) {
     return userCollection.findOne({ token: value });
@@ -90,5 +96,6 @@ module.exports = {
     addMusic,
     getBooks,
     getMovies,
-    getMusic
+    getMusic,
+    getFriends
   };

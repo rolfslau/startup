@@ -2,21 +2,29 @@ import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FriendReviews } from './friend_reviews';
 
-export function Friends() {
-  FriendReviews();
+export function Friends({ username }) {
+  // FriendReviews();
   
   const [friendreviews, setFriendReviews] = React.useState([]);
-
-    useEffect(() => {
-      const interval = setInterval(() => {
-        const savedReviews = localStorage.getItem('friendreviews');
-        if (savedReviews) {
-          setFriendReviews(JSON.parse(savedReviews));
-        }
-        console.log("console reloaded")
-      }, 5000);
-      return () => clearInterval(interval);
-    }, [friendreviews])
+  useEffect(() => {
+    const fetchfriends = async () => {
+      const response = await fetch(`/api/get_friends?username=${username}`);
+      const fReviewsData = await response.json();
+      setFriendReviews(fReviewsData);
+    };
+    fetchfriends();
+  }, []);
+  
+    // useEffect(() => {
+    //   const interval = setInterval(() => {
+    //     const savedReviews = localStorage.getItem('friendreviews');
+    //     if (savedReviews) {
+    //       setFriendReviews(JSON.parse(savedReviews));
+    //     }
+    //     console.log("console reloaded")
+    //   }, 5000);
+    //   return () => clearInterval(interval);
+    // }, [friendreviews])
 
   return (
     <main>
