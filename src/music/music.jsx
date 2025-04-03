@@ -17,16 +17,22 @@ export function get_quote() {
   )
 };
 
-export function Music() {
+export function Music({ username }) {
   const [reviews, setReviews] = React.useState([]);
 
     useEffect(() => {
       // const savedReviews = localStorage.getItem('musicreviews');
-      fetch('/api/get_music')
-      .then((response) => response.json())
-      .then((reviews) => {
-        setReviews(reviews);
-      });
+      const fetchmusic = async () => {
+        const response = await fetch(`/api/get_music?username=${username}`);
+        const muReviewsData = await response.json();
+        setReviews(muReviewsData);
+      };
+      fetchmusic();
+      // fetch('/api/get_music')
+      // .then((response) => response.json())
+      // .then((reviews) => {
+      //   setReviews(reviews);
+      // });
     }, []);
 
     
@@ -41,7 +47,7 @@ export function Music() {
       <p>No reviews yet!</p>
     ) : (
       <div>
-        {reviews.map((review, index) => (
+        {Array.isArray(reviews) && reviews.map((review, index) => (
           <div key={index}>
             <h2>{review.title}: {review.artist}</h2>
             <p>Stars: {review.stars}</p>
