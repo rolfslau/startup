@@ -31,16 +31,22 @@ export function get_quote() {
 //      }
 // }
 
-export function Books(p) {
+export function Books({ username }) {
+  // const username = p;
+  console.log("username in books: ", username);
     const [reviews, setReviews] = React.useState([]);
     useEffect(() => {
       // const savedReviews = localStorage.getItem('bookreviews');
-        fetch('/api/get_books')
-          .then((response) => response.json())
-          .then((reviews) => {
-            setReviews(reviews);
-          }); 
-        }, []); 
+      const fetchBooks = async () => {
+      console.log("api books");
+        const response = await fetch(`/api/get_books?username=${username}`);
+        const reviewsData = await response.json();
+        setReviews(reviewsData);
+        };
+        fetchBooks();
+      }, []);
+        // console.log("book: ", books)
+        console.log("reviews: ", reviews) 
       
 
     
@@ -59,7 +65,7 @@ export function Books(p) {
       <p>No reviews yet!</p>
     ) : (
       <div>
-        {reviews.map((review, index) => (
+        {Array.isArray(reviews) && reviews.map((review, index) => (
           <div key={index}>
             <h2>{review.title}: {review.stars} stars</h2>
             <p>Author: {review.author}</p>

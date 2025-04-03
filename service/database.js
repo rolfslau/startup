@@ -47,10 +47,13 @@ async function addMusic(music) {
 } //HELP WITH THIS PART
 
 function getBooks(user) {
-    const query = { username: user.username };
+    const query = { username: user };
+    console.log(query);
     // const options = { sort: {title: 1}};
     const cursor = bookCollection.find(query, {});
-    return cursor.toArray();
+    console.log("cursor: ", cursor);
+    return cursor.toArray()
+    .then((books) => { console.log("books: ", books); return books; });
 }
 
 function getMovies(user) {

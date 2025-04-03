@@ -108,8 +108,12 @@ apiRouter.post('/music_review', (req, res) => {
 });
 
 apiRouter.get('/get_books', (req, res) => {
+    console.log(req)
+    username = req.query.username
+    user = { username }
+    console.log(username)
     // res.send(book_reviews)
-    book_reviews = DB.getBooks(user)
+    book_reviews = DB.getBooks(username)
     res.send(book_reviews)
 });
 
