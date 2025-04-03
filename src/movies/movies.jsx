@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 export function get_quote() {
   const [quote, setQuote] = React.useState(null);
   useEffect(() => {
-    fetch('https://movie-quote-api.herokuapp.com/v1/quote?censored')
+    fetch('https://quote.cs260.click')
     .then((response) => response.json())
     .then((data) => {
       setQuote(data.quote);
@@ -24,12 +24,12 @@ export function Movies({ username }) {
 
     useEffect(() => {
       // const savedReviews = localStorage.getItem('moviereviews');
-      fetchMovies = async () => {
+      const fetchmovies = async () => {
         const response = await fetch(`/api/get_movies?username=${username}`);
         const mReviewsData = await response.json();
         setReviews(mReviewsData);
       };
-      fetchMovies();
+      fetchmovies();
       // fetch('/api/get_movies')
       // .then((response) => response.json())
       // .then((reviews) => {

@@ -121,7 +121,7 @@ apiRouter.get('/get_movies', async (req, res) => {
     // res.send(movie_reviews)
     username = req.query.username
     user = { username }
-    movie_reviews = await DB.getMovies(user)
+    movie_reviews = await DB.getMovies(username)
     return res.send(movie_reviews)
 });
 
@@ -130,7 +130,7 @@ apiRouter.get('/get_music', async (req, res) => {
     // res.send(music_reviews)
     username = req.query.username
     user = { username }
-    music_reviews = await DB.getMusic(user)
+    music_reviews = await DB.getMusic(username)
     return res.send(music_reviews)
 });
 

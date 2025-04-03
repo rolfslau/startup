@@ -49,7 +49,10 @@ export default function App() {
     <div className='full_page'>
 <header>
 <nav>
+  
   <div>{username}</div>
+  {username ? (
+    <>
         <NavLink className='button' to="/books">books</NavLink>
         <NavLink className='button' to="movies">movies</NavLink>
         <NavLink className='button' to="music">music</NavLink>
@@ -63,7 +66,8 @@ export default function App() {
           <option value="input_friend">new friend</option>
 
         </select>
-
+        </>
+) : ""}
         {/* {selectedOption === 'input_books' && (
           navigate('/input_books')
         )} */}
