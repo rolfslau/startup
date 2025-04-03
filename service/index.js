@@ -85,49 +85,53 @@ apiRouter.post('/book_review', (req, res) => {
 
 apiRouter.post('/movie_review', (req, res) => {
     console.log(req.body)
-    const { title, review, stars } = req.body;
+    const { username, title, review, stars } = req.body;
     if( !title || !review || !stars) {
         return res.status(400).send({message: 'must fill all fields'})
     }
     const mreview = { username, title, review, stars };
-    movie_reviews.push(mreview);
+    // movie_reviews.push(mreview);
     DB.addMovie(mreview)
     return res.status(200).send({status: 200, message: 'movie review added'})
 });
 
 
 apiRouter.post('/music_review', (req, res) => {
-    const { title, artist, stars } = req.body;
+    const { username, title, artist, stars } = req.body;
     if( !title || !artist || !stars) {
         return res.status(400).send('must fill all fields')
     }
     const mureview = { username, title, artist, stars };
-    music_reviews.push(mureview);
+    // music_reviews.push(mureview);
     DB.addMusic(mureview)
     return res.status(200).send({status: 200, message: "music review added"})
 });
 
-apiRouter.get('/get_books', (req, res) => {
+apiRouter.get('/get_books', async (req, res) => {
     console.log(req)
     username = req.query.username
     user = { username }
     console.log(username)
     // res.send(book_reviews)
-    book_reviews = DB.getBooks(username)
-    res.send(book_reviews)
+    book_reviews = await DB.getBooks(username)
+    return res.send(book_reviews)
 });
 
-apiRouter.get('/get_movies', (req, res) => {
+apiRouter.get('/get_movies', async (req, res) => {
     // res.send(movie_reviews)
-    movie_reviews = DB.getMovies(user)
-    res.send(movie_reviews)
+    username = req.query.username
+    user = { username }
+    movie_reviews = await DB.getMovies(user)
+    return res.send(movie_reviews)
 });
 
 
-apiRouter.get('/get_music', (req, res) => {
+apiRouter.get('/get_music', async (req, res) => {
     // res.send(music_reviews)
-    music_reviews = DB.getMusic(user)
-    res.send(music_reviews)
+    username = req.query.username
+    user = { username }
+    music_reviews = await DB.getMusic(user)
+    return res.send(music_reviews)
 });
 
 apiRouter.post('/add_friend', (req, res) => {

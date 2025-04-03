@@ -46,21 +46,24 @@ async function addMusic(music) {
     await musicCollection.insertOne(music);
 } //HELP WITH THIS PART
 
-function getBooks(user) {
+async function getBooks(user) {
     const query = { username: user };
     console.log(query);
     // const options = { sort: {title: 1}};
     const cursor = bookCollection.find(query, {});
     console.log("cursor: ", cursor);
-    return cursor.toArray()
-    .then((books) => { console.log("books: ", books); return books; });
+    const books = await cursor.toArray();
+    return books;
+    // return cursor.toArray()
+    // .then((books) => { console.log("books: ", books); return books; });
 }
 
-function getMovies(user) {
+async function getMovies(user) {
     const query = { username: user.username };
     // const options = { sort: {title: 1}};
     const cursor = movieCollection.find(query, {});
-    return cursor.toArray();
+    const movies = await cursor.toArray();
+    return movies;
 }
 
 
@@ -69,11 +72,12 @@ async function getUserToken(value) {
   }
 
 
-function getMusic(user) {
+async function getMusic(user) {
     const query = { username: user.username };
     // const options = { sort: {title: 1}};
     const cursor = musicCollection.find(query, {});
-    return cursor.toArray();
+    const music = await cursor.toArray();
+    return music;
 }
 
 module.exports = {

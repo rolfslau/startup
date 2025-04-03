@@ -41,6 +41,7 @@ export function Books({ username }) {
       console.log("api books");
         const response = await fetch(`/api/get_books?username=${username}`);
         const reviewsData = await response.json();
+        console.log("response: ", response)
         setReviews(reviewsData);
         };
         fetchBooks();
