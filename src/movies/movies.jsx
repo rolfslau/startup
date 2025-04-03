@@ -18,17 +18,23 @@ export function get_quote() {
   )
 };
 
-export function Movies() {
+export function Movies({ username }) {
 
   const [reviews, setReviews] = React.useState([]);
 
     useEffect(() => {
       // const savedReviews = localStorage.getItem('moviereviews');
-      fetch('/api/get_movies')
-      .then((response) => response.json())
-      .then((reviews) => {
-        setReviews(reviews);
-      });
+      fetchMovies = async () => {
+        const response = await fetch(`/api/get_movies?username=${username}`);
+        const mReviewsData = await response.json();
+        setReviews(mReviewsData);
+      };
+      fetchMovies();
+      // fetch('/api/get_movies')
+      // .then((response) => response.json())
+      // .then((reviews) => {
+      //   setReviews(reviews);
+      // });
     }, []);
 
   return (
@@ -42,7 +48,7 @@ export function Movies() {
       <p>No reviews yet!</p>
     ) : (
       <div>
-        {reviews.map((review, index) => (
+        {Array.isArray(reviews) && reviews.map((review, index) => (
           <div key={index}>
             <h2>{review.title}: {review.stars} stars</h2>
             <p>Review: {review.review}</p>
