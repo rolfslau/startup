@@ -129,10 +129,10 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
 - [x] **User registration** - endpoint that creates a user
-- [x] **User login and logout** - authentication
+- [x] **User login and logout** - authentication, logout makes you unable to access nav bar
 - [x] **Stores data in MongoDB** - don't really know what to say about this but I did it
 - [x] **Stores credentials in MongoDB** - don't really know what to say about this but I did it
-- [x] **Restricts functionality based on authentication** - yeah
+- [x] **Restricts functionality based on authentication** - if logged out you don't have access to the nav bar
 
 
 ## 🚀 WebSocket deliverable
