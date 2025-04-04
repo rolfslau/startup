@@ -29,9 +29,9 @@ async function addUser(user) {
 }
 
 async function addFriend(user, friend) {
-    let curr = getUser(user)
+    let curr = await getUser(user)
     curr.friends.push(friend)
-    await userCollection.updateOne({username: curr.username}, {friends: curr.friends}) //HELP WITH THIS PART
+    await userCollection.updateOne({username: curr.username}, {$set: {friends: curr.friends}}) //HELP WITH THIS PART
 }
 
 async function addBook(book) {
@@ -52,8 +52,7 @@ async function getBooks(user) {
     // const options = { sort: {title: 1}};
     const cursor = bookCollection.find(query, {});
     console.log("cursor: ", cursor);
-    const books = await cursor.toArray();
-    return books;
+    return cursor.toArray();
     // return cursor.toArray()
     // .then((books) => { console.log("books: ", books); return books; });
 }
@@ -66,11 +65,15 @@ async function getMovies(user) {
     return movies;
 }
 
-async function getFriendsReviews(user) {
-  const found = userCollection.findOne(user.username)
+async function getFriendsReviews(username) {
+  const found = await userCollection.findOne({username: username})
   friends = found.friends
   let revs = []
-  friends.forEach(make_list())
+  for (const friend of friends) {
+    const books = await getBooks(friend);
+    if (books && books.length > 0) {
+    revs.push(books[0]);}
+  }
   return revs
 }
 

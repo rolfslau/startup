@@ -82,7 +82,7 @@ export default function App() {
   <Route path='/music' element={<Music username={username}/>} />
   <Route path='/movies' element={<Movies username={username}/>} />
   <Route path='/books' element={<Books username={username}/>} />
-  <Route path='/friends' element={<Friends />} />
+  <Route path='/friends' element={<Friends username={username}/>} />
   <Route path='/input_books' element={<Inputbooks username={username}/>} />
   <Route path='/input_movies' element={<Inputmovies username={username}/>} />
   <Route path='/input_music' element={<Inputmusic username={username}/>} />

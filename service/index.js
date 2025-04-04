@@ -137,15 +137,15 @@ apiRouter.get('/get_music', async (req, res) => {
 apiRouter.get('/get_friends', async (req, res) => {
     username = req.query.username
     user = { username }
-    friends = await DB.getFriends(username)
+    friends = await DB.getFriendsReviews(username)
     return res.send(friends)
 })
 
 apiRouter.post('/add_friend', (req, res) => {
-    const {username, friendname} = req.body;
+    const {username, friend} = req.body;
     // const friend = {friendname};
     // friends.push(friend);
-    DB.addFriend(username, friendname)
+    DB.addFriend(username, friend)
     res.status(200).send({status: 200, message: 'new friend added'})
 });
 
