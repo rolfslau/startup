@@ -29,7 +29,7 @@ async function addUser(user) {
 }
 
 async function addFriend(user, friend) {
-    let curr = getUser(user.username)
+    let curr = getUser(user)
     curr.friends.push(friend)
     await userCollection.updateOne({username: curr.username}, {friends: curr.friends}) //HELP WITH THIS PART
 }
@@ -66,10 +66,12 @@ async function getMovies(user) {
     return movies;
 }
 
-async function getFriends(user) {
+async function getFriendsReviews(user) {
   const found = userCollection.findOne(user.username)
   friends = found.friends
-  return friends
+  let revs = []
+  friends.forEach(make_list())
+  return revs
 }
 
 
@@ -86,6 +88,12 @@ async function getMusic(user) {
     return music;
 }
 
+function make_list() {
+  const books = getBooks(friend);
+  revs.push(books[0]);
+
+}
+
 module.exports = {
     getUser,
     addUser,
@@ -97,5 +105,5 @@ module.exports = {
     getBooks,
     getMovies,
     getMusic,
-    getFriends
+    getFriendsReviews
   };

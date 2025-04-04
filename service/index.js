@@ -143,9 +143,9 @@ apiRouter.get('/get_friends', async (req, res) => {
 
 apiRouter.post('/add_friend', (req, res) => {
     const {username, friendname} = req.body;
-    const friend = {friendname};
+    // const friend = {friendname};
     // friends.push(friend);
-    DB.addFriend(username, friend)
+    DB.addFriend(username, friendname)
     res.status(200).send({status: 200, message: 'new friend added'})
 });
 

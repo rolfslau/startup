@@ -16,7 +16,7 @@ export function Inputfriend({username}) {
         // }
         const response = await fetch('/api/add_friend', {
             method: 'POST',
-            body: JSON.stringify({friend: friend}),
+            body: JSON.stringify({username: username, friend: friend}),
             headers: {
                 'Content-type': 'application/json',
             },
