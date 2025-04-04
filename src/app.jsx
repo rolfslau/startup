@@ -21,6 +21,7 @@ export default function App() {
     < AppContent />
     </BrowserRouter>
   )
+  
 
   function AppContent() {
   const navigate = useNavigate()
@@ -42,6 +43,22 @@ export default function App() {
       navigate('/input_friend')
     }
   }
+
+  async function logout() {
+    await fetch('/api/logout', {
+      method: 'DELETE',
+      credentials: 'include'
+    }).then(response => {
+      if (response.ok) {
+        console.log("logout success")
+        setusername('')
+        navigate("/")
+      }
+      else { console.log("logout unsuccessful")}
+    })
+    
+  }
+
   return ( 
   // <BrowserRouter>
   <>
@@ -93,7 +110,8 @@ export default function App() {
   <hr></hr>
 
   <footer>
-  <NavLink className='button' to="/">log out</NavLink>
+  {/* <NavLink className='button' to="/">log out</NavLink> */}
+  <button onClick={logout}>log out</button>
   <br/>
       <a href="https://github.com/rolfslau/startup">github repo</a>
 
