@@ -183,7 +183,9 @@ async function createUser(username, password, friends) {
     return DB.getUser((u) => u[field] === value);
   }
 
-const port = process.argv.length > 2 ? process.argv[2] : 3000;
+const port = process.argv.length > 2 ? process.argv[2] : 4000;
 app.listen(port, () => {
     console.log(`server running on port ${port}`);
 });
+
+// install uuid, bcryptjs, cookie-parser, mongodb
