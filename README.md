@@ -139,8 +139,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Backend listens for WebSocket connection** - 
-- [ ] **Frontend makes WebSocket connection** - 
+- [x] **Backend listens for WebSocket connection** - yes
+- [x] **Frontend makes WebSocket connection** - yes
 - [x] **Data sent over WebSocket connection** - when reviews added, notification sent to other users
-- [ ] **WebSocket data displayed** - 
-- [ ] **Application is fully functional** - 
+- [x] **WebSocket data displayed** - when people make reviews, the browser pops up a notification alert that a review has been added
+- [x] **Application is fully functional** - yes
