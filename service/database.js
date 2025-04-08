@@ -84,7 +84,7 @@ async function getUserToken(value) {
 
 
 async function getMusic(user) {
-    const query = { username: user.username };
+    const query = { username: user };
     // const options = { sort: {title: 1}};
     const cursor = musicCollection.find(query, {});
     return cursor.toArray();
