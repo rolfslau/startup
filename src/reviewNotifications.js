@@ -38,6 +38,11 @@ class EventNotifier {
     receiveEvent(event) {
         alert(event);
     }
+
+    broadcastEvent(from, type, value) {
+        const event = new EventMessage(from, type, value);
+        this.socket.send(JSON.stringify(event));
+      }
 }
 
 const EventNotifier = new EventNotifier();
