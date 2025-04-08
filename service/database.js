@@ -58,11 +58,11 @@ async function getBooks(user) {
 }
 
 async function getMovies(user) {
-    const query = { username: user.username };
+    const query = { username: user };
     // const options = { sort: {title: 1}};
     const cursor = movieCollection.find(query, {});
-    const movies = await cursor.toArray();
-    return movies;
+    return cursor.toArray();
+    // return movies;
 }
 
 async function getFriendsReviews(username) {
@@ -87,8 +87,8 @@ async function getMusic(user) {
     const query = { username: user.username };
     // const options = { sort: {title: 1}};
     const cursor = musicCollection.find(query, {});
-    const music = await cursor.toArray();
-    return music;
+    return cursor.toArray();
+    // return music;
 }
 
 function make_list() {

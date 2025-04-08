@@ -29,7 +29,7 @@ class EventNotifier {
         };
         this.socket.onmessage = async (msg) => {
             try {
-                const event = Json.parse(await msg.data.text());
+                const event = Json.parse(await msg.data.text()); // this will be the whole event
                 this.receiveEvent(event);
             } catch {}
         };
