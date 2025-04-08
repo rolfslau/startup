@@ -184,8 +184,8 @@ async function createUser(username, password, friends) {
   }
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
-app.listen(port, () => {
+httpService = app.listen(port, () => {
     console.log(`server running on port ${port}`);
 });
 
-// install uuid, bcryptjs, cookie-parser, mongodb
+peerProxy(httpService);
