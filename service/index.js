@@ -11,6 +11,7 @@ app.use(cookieParser());
 const bcrypt = require('bcryptjs');
 const uuid = require('uuid');
 const authCookieName = 'token';
+const { peerProxy } = require('./peerProxy.js');
 
 // let users = [];
 // let book_reviews = [];
