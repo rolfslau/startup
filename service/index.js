@@ -1,5 +1,8 @@
 const express = require('express');
 const app = express();
+app.use((req, res, next) => {
+    next();
+})
 app.use(express.json());
 app.use(express.static('public'));
 const DB = require('./database.js');
