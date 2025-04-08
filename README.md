@@ -144,3 +144,6 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [x] **Data sent over WebSocket connection** - when reviews added, notification sent to other users
 - [x] **WebSocket data displayed** - when people make reviews, the browser pops up a notification alert that a review has been added
 - [x] **Application is fully functional** - yes
+
+TO TEST THAT THE WEBSOCKET IS SENDING NOTIFICATIONS:
+you need to open two, and then add a review. it only notifies if you add a book/movie/music review
