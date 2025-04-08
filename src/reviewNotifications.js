@@ -45,5 +45,5 @@ class EventNotifier {
       }
 }
 
-const EventNotifier = new EventNotifier();
-export { revEvent, EventNotifier };
+const EvNotifier = new EventNotifier();
+export { revEvent, EvNotifier };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { revEvent, EventNotifier } from '../reviewNotifications';
+import { revEvent, EvNotifier } from '../reviewNotifications';
 
 export function Inputbooks({username}) {
     const navigate = useNavigate()
@@ -31,7 +31,7 @@ export function Inputbooks({username}) {
             });
         const jsonResponse = await response.json();
         if (jsonResponse.status == 200) {
-            EventNotifier.broadcastEvent(username, revEvent.book, {msg: `${username} added a book review`})
+            EvNotifier.broadcastEvent(username, revEvent.book, {msg: `${username} added a book review`})
             navigate('/books')
         }
         else {alert("error adding review")}

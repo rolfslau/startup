@@ -141,6 +141,6 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 - [ ] **Backend listens for WebSocket connection** - 
 - [ ] **Frontend makes WebSocket connection** - 
-- [ ] **Data sent over WebSocket connection** - 
+- [x] **Data sent over WebSocket connection** - when reviews added, notification sent to other users
 - [ ] **WebSocket data displayed** - 
 - [ ] **Application is fully functional** - 
