@@ -26,7 +26,7 @@ export function Inputmusic({username}) {
         });
         const jsonResponse = await response.json();
         if (jsonResponse.status == 200) {
-            EvNotifier.broadcastEvent(username, revEvent.music, {msg: `${username} added a music review`})
+            EvNotifier.broadcastEvent(username, revEvent.Music, {msg: `${username} added a music review`})
             navigate('/music')
         }
         else {alert("error adding review")}

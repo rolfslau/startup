@@ -26,7 +26,7 @@ export function Inputmovies({username}) {
         });
         const jsonResponse = await response.json();
         if (jsonResponse.status == 200) {
-            EvNotifier.broadcastEvent(username, revEvent.movie, {msg: `${username} added a movie review`})
+            EvNotifier.broadcastEvent(username, revEvent.Movie, {msg: `${username} added a movie review`})
             navigate('/movies')
         }
         else {alert("error adding review")}

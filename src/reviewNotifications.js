@@ -29,14 +29,15 @@ class EventNotifier {
         };
         this.socket.onmessage = async (msg) => {
             try {
-                const event = Json.parse(await msg.data.text()); // this will be the whole event
+                const event = JSON.parse(await msg.data.text()); // this will be the whole event
                 this.receiveEvent(event);
             } catch {}
         };
     }
 
     receiveEvent(event) {
-        alert(event);
+        let toPrint = `${event.value.msg}`
+        alert(toPrint);
     }
 
     broadcastEvent(from, type, value) {

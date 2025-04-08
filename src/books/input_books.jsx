@@ -31,7 +31,7 @@ export function Inputbooks({username}) {
             });
         const jsonResponse = await response.json();
         if (jsonResponse.status == 200) {
-            EvNotifier.broadcastEvent(username, revEvent.book, {msg: `${username} added a book review`})
+            EvNotifier.broadcastEvent(username, revEvent.Book, {msg: `${username} added a book review`})
             navigate('/books')
         }
         else {alert("error adding review")}
