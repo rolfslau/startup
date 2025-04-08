@@ -34,4 +34,11 @@ class EventNotifier {
             } catch {}
         };
     }
+
+    receiveEvent(event) {
+        alert(event);
+    }
 }
+
+const EventNotifier = new EventNotifier();
+export { revEvent, EventNotifier };
